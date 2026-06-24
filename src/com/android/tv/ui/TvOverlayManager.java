@@ -709,6 +709,12 @@ public class TvOverlayManager implements AccessibilityStateChangeListener {
     /** Hides all the opened overlays according to the flags. */
     // TODO: Add test for this method.
     public void hideOverlays(@HideOverlayFlag int flags) {
+        if (DEBUG) {
+            Log.d(TAG, "hideOverlays(flags=" + Integer.toBinaryString(flags) + ")");
+            if ((flags & (FLAG_HIDE_OVERLAYS_WITHOUT_ANIMATION | FLAG_HIDE_OVERLAYS_KEEP_DIALOG)) == 10) {
+                Log.d(TAG, "hideOverlays: CALLER STACK:", new Throwable());
+            }
+        }
         if (mMainActivity.needToKeepSetupScreenWhenHidingOverlay()) {
             flags |= FLAG_HIDE_OVERLAYS_KEEP_FRAGMENT;
         }
@@ -1224,4 +1230,3 @@ public class TvOverlayManager implements AccessibilityStateChangeListener {
         }
     }
 }
-

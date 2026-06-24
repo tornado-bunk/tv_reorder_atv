@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -363,4 +363,15 @@
     <string name="reorder_channels_title">Ordina Canali</string>
     <string name="reorder_channel_moving_format">[SPOSTA] %1$s</string>
     <string name="reorder_channel_number_format">Canale %1$s</string>
+
+    <!-- Channel Banner Auto-Hide Settings -->
+    <string name="settings_channel_banner_timeout">Timeout banner canale</string>
+    <string name="settings_channel_banner_timeout_description">Nascondi automaticamente il banner informativo del canale dopo alcuni secondi</string>
+    <string name="settings_force_auto_hide">Forza l\'auto hide</string>
+    <string name="settings_force_auto_hide_description">Nascondi sempre automaticamente il banner, anche con l\'accessibilità attiva</string>
+    <string name="settings_banner_duration_title">Durata banner</string>
+    <string name="banner_duration_3s">3 secondi</string>
+    <string name="banner_duration_5s">5 secondi</string>
+    <string name="banner_duration_8s">8 secondi</string>
+    <string name="banner_duration_off">Mai</string>
 </resources>

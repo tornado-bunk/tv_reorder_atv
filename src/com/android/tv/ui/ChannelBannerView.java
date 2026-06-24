@@ -33,7 +33,6 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.style.TextAppearanceSpan;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,8 +73,6 @@ import javax.inject.Provider;
 /** A view to render channel banner. */
 public class ChannelBannerView extends FrameLayout
         implements TransitionLayout, AccessibilityStateChangeListener {
-    private static final String TAG = "ChannelBannerView";
-    private static final boolean DEBUG = false;
 
     /** Show all information at the channel banner. */
     public static final int LOCK_NONE = 0;
@@ -804,9 +801,6 @@ public class ChannelBannerView extends FrameLayout
                 (mCurrentChannel == null)
                         ? null
                         : mDvrManager.getCurrentRecording(mCurrentChannel.getId());
-        if (DEBUG) {
-            Log.d(TAG, currentRecording == null ? "No Recording" : "Recording:" + currentRecording);
-        }
         if (currentRecording != null && isCurrentProgram(currentRecording, program)) {
             updateProgressBarAndRecIcon(program, currentRecording);
         } else {
@@ -936,4 +930,3 @@ public class ChannelBannerView extends FrameLayout
         mAutoHideScheduler.onAccessibilityStateChanged(enabled);
     }
 }
-

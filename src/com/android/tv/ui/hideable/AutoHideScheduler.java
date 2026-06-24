@@ -16,6 +16,7 @@
 package com.android.tv.ui.hideable;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
@@ -39,24 +40,36 @@ import com.android.tv.common.WeakHandler;
  */
 @UiThread
 public final class AutoHideScheduler implements AccessibilityStateChangeListener {
+    private static final String PREF_NAME = "tv_reorder_prefs";
+    private static final String PREF_FORCE_AUTO_HIDE = "force_auto_hide";
+    private static final String PREF_BANNER_DURATION_SEC = "banner_duration_sec";
+    private static final int DEFAULT_BANNER_DURATION_SEC = 5;
+
     private static final int MSG_HIDE = 1;
 
     private final HideHandler mHandler;
     private final Runnable mRunnable;
+    private final Context mContext;
 
     public AutoHideScheduler(Context context, Runnable runnable) {
         this(
                 runnable,
                 context.getSystemService(AccessibilityManager.class),
-                Looper.getMainLooper());
+                Looper.getMainLooper(),
+                context);
     }
 
     @VisibleForTesting
-    AutoHideScheduler(Runnable runnable, AccessibilityManager accessibilityManager, Looper looper) {
+    AutoHideScheduler(Runnable runnable, AccessibilityManager accessibilityManager, Looper looper,
+            Context context) {
         // Keep a reference here because HideHandler only has a weak reference to it.
         mRunnable = runnable;
+        mContext = context;
         mHandler = new HideHandler(looper, mRunnable);
-        mHandler.setAllowAutoHide(true);
+        mHandler.setAllowAutoHide(!accessibilityManager.isEnabled());
+        boolean forceAutoHide = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+                .getBoolean(PREF_FORCE_AUTO_HIDE, false);
+        mHandler.setForceAutoHide(forceAutoHide);
     }
 
     public void cancel() {
@@ -65,24 +78,38 @@ public final class AutoHideScheduler implements AccessibilityStateChangeListener
 
     public void schedule(long delayMs) {
         cancel();
-        if (mHandler.mAllowAutoHide) {
-            mHandler.sendEmptyMessageDelayed(MSG_HIDE, delayMs);
+        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        boolean forceAutoHide = prefs.getBoolean(PREF_FORCE_AUTO_HIDE, false);
+        mHandler.setForceAutoHide(forceAutoHide);
+        if (forceAutoHide || mHandler.mAllowAutoHide) {
+            // Use the custom duration from prefs if force auto-hide is enabled, otherwise use
+            // the default delay passed in.
+            long actualDelay = delayMs;
+            if (forceAutoHide) {
+                int customSec = prefs.getInt(PREF_BANNER_DURATION_SEC, DEFAULT_BANNER_DURATION_SEC);
+                if (customSec <= 0) {
+                    // Duration set to "Never" – do not schedule
+                    return;
+                }
+                actualDelay = customSec * 1000L;
+            }
+            mHandler.sendEmptyMessageDelayed(MSG_HIDE, actualDelay);
         }
     }
 
     @Override
     public void onAccessibilityStateChanged(boolean enabled) {
-        mHandler.onAccessibilityStateChanged(enabled);
+        mHandler.onAccessibilityStateChanged(enabled, mContext);
     }
 
     public boolean isScheduled() {
         return mHandler.hasMessages(MSG_HIDE);
     }
 
-    private static class HideHandler extends WeakHandler<Runnable>
-            implements AccessibilityStateChangeListener {
+    private static class HideHandler extends WeakHandler<Runnable> {
 
         private boolean mAllowAutoHide;
+        private boolean mForceAutoHide;
 
         public HideHandler(Looper looper, Runnable hideRunner) {
             super(looper, hideRunner);
@@ -92,7 +119,7 @@ public final class AutoHideScheduler implements AccessibilityStateChangeListener
         protected void handleMessage(Message msg, @NonNull Runnable runnable) {
             switch (msg.what) {
                 case MSG_HIDE:
-                    if (mAllowAutoHide) {
+                    if (mAllowAutoHide || mForceAutoHide) {
                         runnable.run();
                     }
                     break;
@@ -101,13 +128,21 @@ public final class AutoHideScheduler implements AccessibilityStateChangeListener
             }
         }
 
-        public void setAllowAutoHide(boolean mAllowAutoHide) {
-            this.mAllowAutoHide = mAllowAutoHide;
+        public void setAllowAutoHide(boolean allow) {
+            this.mAllowAutoHide = allow;
         }
 
-        @Override
-        public void onAccessibilityStateChanged(boolean enabled) {
-            mAllowAutoHide = true;
+        public void setForceAutoHide(boolean force) {
+            this.mForceAutoHide = force;
+        }
+
+        public void onAccessibilityStateChanged(boolean enabled, Context context) {
+            // When accessibility turns on, disable auto-hide unless the user has forced it on.
+            SharedPreferences prefs =
+                    context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+            boolean forceAutoHide = prefs.getBoolean(PREF_FORCE_AUTO_HIDE, false);
+            mAllowAutoHide = forceAutoHide || !enabled;
+            mForceAutoHide = forceAutoHide;
         }
     }
 }

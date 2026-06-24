@@ -728,7 +728,7 @@ public class TunerRecordingSessionWorkerExoV2
                 return new HashSet<>(Arrays.asList(columns));
             }
         }
-        Log.e(TAG, "Query existing column names from " + uri + " returned null");
+        // Log.e(TAG, "Query existing column names from " + uri + " returned null");
         return Collections.emptySet();
     }
 
@@ -750,7 +750,7 @@ public class TunerRecordingSessionWorkerExoV2
                                 contentUri.toString(),
                                 extra);
         if (allColumns == null) {
-            Log.w(TAG, "Adding new column failed. Uri=" + contentUri);
+            // Log.w(TAG, "Adding new column failed. Uri=" + contentUri);
         }
         return allColumns != null;
     }

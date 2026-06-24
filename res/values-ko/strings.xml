@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -362,4 +362,14 @@
     <string name="reorder_channels_title">"채널 재정렬"</string>
     <string name="reorder_channel_moving_format">"[이동] %1$s"</string>
     <string name="reorder_channel_number_format">"채널 %1$s"</string>
+    <!-- Channel Banner Auto-Hide Settings -->
+    <string name="settings_channel_banner_timeout">"채널 배너 시간 초과"</string>
+    <string name="settings_channel_banner_timeout_description">"몇 초 후에 채널 정보 배너를 자동으로 숨깁니다"</string>
+    <string name="settings_force_auto_hide">"자동 숨김 강제"</string>
+    <string name="settings_force_auto_hide_description">"접근성이 켜져 있어도 항상 배너를 자동으로 숨깁니다"</string>
+    <string name="settings_banner_duration_title">"배너 지속 시간"</string>
+    <string name="banner_duration_3s">"3초"</string>
+    <string name="banner_duration_5s">"5초"</string>
+    <string name="banner_duration_8s">"8초"</string>
+    <string name="banner_duration_off">"없음"</string>
 </resources>

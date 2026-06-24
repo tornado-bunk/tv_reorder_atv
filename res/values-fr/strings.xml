@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -360,4 +360,14 @@
     <string name="reorder_channels_title">"Réorganiser les Chaînes"</string>
     <string name="reorder_channel_moving_format">"[DÉPLACER] %1$s"</string>
     <string name="reorder_channel_number_format">"Chaîne %1$s"</string>
+    <!-- Channel Banner Auto-Hide Settings -->
+    <string name="settings_channel_banner_timeout">"Délai d'affichage de la bannière"</string>
+    <string name="settings_channel_banner_timeout_description">"Masquer automatiquement la bannière d'information de la chaîne après quelques secondes"</string>
+    <string name="settings_force_auto_hide">"Forcer le masquage automatique"</string>
+    <string name="settings_force_auto_hide_description">"Toujours masquer automatiquement la bannière, même avec l'accessibilité activée"</string>
+    <string name="settings_banner_duration_title">"Durée d'affichage"</string>
+    <string name="banner_duration_3s">"3 secondes"</string>
+    <string name="banner_duration_5s">"5 secondes"</string>
+    <string name="banner_duration_8s">"8 secondes"</string>
+    <string name="banner_duration_off">"Jamais"</string>
 </resources>

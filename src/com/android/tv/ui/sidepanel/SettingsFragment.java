@@ -106,6 +106,19 @@ public class SettingsFragment extends SideFragment {
         reorderChannelListItem.setEnabled(false);
         items.add(reorderChannelListItem);
 
+        // Add menu item for channel banner auto-hide settings
+        final Item bannerSettingsItem =
+                new SubMenuItem(
+                        getString(R.string.settings_channel_banner_timeout),
+                        getString(R.string.settings_channel_banner_timeout_description),
+                        getMainActivity().getOverlayManager().getSideFragmentManager()) {
+                    @Override
+                    protected SideFragment getFragment() {
+                        return new BannerSettingsFragment();
+                    }
+                };
+        items.add(bannerSettingsItem);
+
         final MainActivity activity = getMainActivity();
         TvSingletons singletons = TvSingletons.getSingletons(getContext());
         boolean hasNewInput =

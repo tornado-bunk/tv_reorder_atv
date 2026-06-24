@@ -106,7 +106,11 @@ dependencies {
 
 protobuf {
     protoc {
-        artifact = 'com.google.protobuf:protoc:3.11.0'
+        // protoc 3.11.0 has no native osx-aarch_64 binary for Apple Silicon.
+        // On macOS ARM64, explicitly use osx-x86_64 (runs via Rosetta 2).
+        def isMacArm = System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("mac") &&
+                System.getProperty("os.arch").toLowerCase(Locale.ROOT).contains("aarch")
+        artifact = 'com.google.protobuf:protoc:3.11.0' + (isMacArm ? ':osx-x86_64' : '')
     }
     generateProtoTasks {
         all().each { task ->

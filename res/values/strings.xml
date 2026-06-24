@@ -1073,4 +1073,15 @@
     <string name="reorder_channels_title">Reorder Channels</string>
     <string name="reorder_channel_moving_format">[MOVE] %1$s</string>
     <string name="reorder_channel_number_format">Channel %1$s</string>
+
+    <!-- Channel Banner Auto-Hide Settings -->
+    <string name="settings_channel_banner_timeout">Channel banner timeout</string>
+    <string name="settings_channel_banner_timeout_description">Automatically hide the channel info banner after a few seconds</string>
+    <string name="settings_force_auto_hide">Force auto-hide</string>
+    <string name="settings_force_auto_hide_description">Always auto-hide the banner, even with accessibility on</string>
+    <string name="settings_banner_duration_title">Banner duration</string>
+    <string name="banner_duration_3s">3 seconds</string>
+    <string name="banner_duration_5s">5 seconds</string>
+    <string name="banner_duration_8s">8 seconds</string>
+    <string name="banner_duration_off">Never</string>
 </resources>

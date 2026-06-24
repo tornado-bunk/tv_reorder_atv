@@ -41,6 +41,7 @@ import java.util.Set;
 /** A utility class related to TvProvider. */
 public final class TvProviderUtils {
     private static final String TAG = "TvProviderUtils";
+    private static final boolean DEBUG = false;
 
     public static final String EXTRA_PROGRAM_COLUMN_SERIES_ID = BaseProgram.COLUMN_SERIES_ID;
     public static final String EXTRA_PROGRAM_COLUMN_STATE = BaseProgram.COLUMN_STATE;
@@ -181,7 +182,7 @@ public final class TvProviderUtils {
                 return new HashSet<>(Arrays.asList(columns));
             }
         }
-        Log.e(TAG, "Query existing column names from " + uri + " returned null");
+        // if (DEBUG) Log.e(TAG, "Query existing column names from " + uri + " returned null");
         return Collections.emptySet();
     }
 
@@ -208,11 +209,10 @@ public final class TvProviderUtils {
             Log.e(TAG, "Error trying to add column.", e);
         }
         if (allColumns == null) {
-            Log.w(TAG, "Adding new column failed. Uri=" + contentUri);
+            // if (DEBUG) Log.w(TAG, "Adding new column failed. Uri=" + contentUri);
         }
         return allColumns != null;
     }
 
     private TvProviderUtils() {}
 }
-

@@ -85,6 +85,13 @@
 -keep class *Factory { *; }
 -keep class *Impl { *; }
 
+# AutoHideScheduler keeps a strong reference to the Runnable so WeakHandler
+# can still find it via its WeakReference. R8 removes this field as dead
+# code, causing auto-hide to silently never fire.
+-keepclassmembers class com.android.tv.ui.hideable.AutoHideScheduler {
+    private java.lang.Runnable mRunnable;
+}
+
 # Ignore compile-time dependencies in final package analysis
 -dontwarn javax.annotation.processing.**
 -dontwarn javax.lang.model.**
@@ -92,4 +99,3 @@
 -dontwarn com.squareup.javapoet.**
 -dontwarn com.google.auto.factory.**
 -dontwarn com.google.auto.value.**
-

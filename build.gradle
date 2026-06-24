@@ -69,6 +69,15 @@ android {
         versionName "1.2"
     }
 
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a'
+            universalApk true
+        }
+    }
+
     sourceSets {
         main {
             res.srcDirs = ['res', 'material_res', 'ratings/res']

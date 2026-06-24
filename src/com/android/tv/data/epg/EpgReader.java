@@ -16,9 +16,9 @@
 
 package com.android.tv.data.epg;
 
-import android.support.annotation.AnyThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 
 import com.android.tv.data.Lineup;
 import com.android.tv.data.api.Channel;
@@ -104,3 +104,4 @@ public interface EpgReader {
     /** Returns the series information for the given series ID. */
     SeriesInfo getSeriesInfo(@NonNull String seriesId);
 }
+

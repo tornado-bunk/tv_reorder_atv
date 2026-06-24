@@ -19,7 +19,7 @@ package com.android.tv.common.actions;
 import android.content.Intent;
 import android.media.tv.TvInputInfo;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /** Constants and static utilities for the Input Setup Action. */
 public class InputSetupActionUtils {
@@ -125,3 +125,4 @@ public class InputSetupActionUtils {
                 || INTENT_GOOGLE_ACTION_INPUT_SETUP.equals(action);
     }
 }
+

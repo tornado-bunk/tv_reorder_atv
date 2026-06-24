@@ -16,7 +16,7 @@
 
 package com.android.tv.common.concurrent;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -43,3 +43,4 @@ public class NamedThreadFactory implements ThreadFactory {
         return thread.getName().startsWith(mPrefix);
     }
 }
+

@@ -79,6 +79,33 @@ public class SettingsFragment extends SideFragment {
                 };
         customizeChannelListItem.setEnabled(false);
         items.add(customizeChannelListItem);
+
+        // Add menu item to reorder channels
+        final Item reorderChannelListItem =
+                new SubMenuItem(
+                        getString(R.string.settings_reorder_channels),
+                        getString(R.string.settings_reorder_channels_description),
+                        getMainActivity().getOverlayManager().getSideFragmentManager()) {
+                    @Override
+                    protected SideFragment getFragment() {
+                        return new ChannelReorderFragment();
+                    }
+
+                    @Override
+                    protected void onBind(View view) {
+                        super.onBind(view);
+                        setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onUpdate() {
+                        super.onUpdate();
+                        setEnabled(getChannelDataManager().getChannelCount() != 0);
+                    }
+                };
+        reorderChannelListItem.setEnabled(false);
+        items.add(reorderChannelListItem);
+
         final MainActivity activity = getMainActivity();
         TvSingletons singletons = TvSingletons.getSingletons(getContext());
         boolean hasNewInput =

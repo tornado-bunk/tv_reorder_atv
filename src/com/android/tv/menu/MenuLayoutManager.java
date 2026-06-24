@@ -24,7 +24,7 @@ import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.util.Property;
@@ -975,3 +975,4 @@ public class MenuLayoutManager {
         }
     }
 }
+

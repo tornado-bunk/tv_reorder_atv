@@ -24,7 +24,7 @@ import android.media.tv.AitInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import com.android.tv.data.ChannelImpl;
 import com.android.tv.data.StreamInfo;

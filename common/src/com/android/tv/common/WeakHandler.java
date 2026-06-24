@@ -19,7 +19,7 @@ package com.android.tv.common;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
 
 /**
@@ -76,3 +76,4 @@ public abstract class WeakHandler<T> extends Handler {
      */
     protected abstract void handleMessage(Message msg, @NonNull T referent);
 }
+

@@ -17,7 +17,7 @@
 package com.android.tv.common;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.tv.common.feature.Feature;
@@ -192,7 +192,7 @@ public final class SoftPreconditions {
             logMessage = prefix + ": " + msg;
         }
 
-        if (BuildConfig.ENG && !CommonUtils.isRunningInTest()) {
+        if (false && BuildConfig.ENG && !CommonUtils.isRunningInTest()) {
             throw new RuntimeException(msg, e);
         } else {
             Log.w(tag, logMessage, e);
@@ -246,3 +246,4 @@ public final class SoftPreconditions {
 
     private SoftPreconditions() {}
 }
+

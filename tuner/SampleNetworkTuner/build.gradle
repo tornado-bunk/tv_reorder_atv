@@ -23,8 +23,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.protobuf'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    namespace 'com.android.tv.tuner.sample.network'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
+
+    buildFeatures {
+        buildConfig true
+    }
 
     compileOptions() {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -48,7 +53,7 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
         }
     }
 
@@ -65,8 +70,9 @@ dependencies {
     implementation      'androidx.leanback:leanback:1.1.0-alpha02'
     implementation      'androidx.palette:palette:1.0.0'
     implementation      'androidx.tvprovider:tvprovider:1.0.0'
+    implementation      'com.android.support:support-annotations:28.0.0'
 
-    implementation      'com.google.android.exoplayer:exoplayer-ui:2.10.1'
+    implementation      files(rootProject.file('libs/exoplayer-ui-2.10.1.aar'))
     annotationProcessor 'com.google.auto.value:auto-value:1.5.3'
     implementation      'com.google.auto.value:auto-value:1.5.3'
     implementation      'com.google.dagger:dagger:2.23'

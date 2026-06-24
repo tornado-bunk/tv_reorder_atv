@@ -24,9 +24,9 @@ import android.content.IntentFilter;
 import android.os.Environment;
 import android.os.Looper;
 import android.os.StatFs;
-import android.support.annotation.AnyThread;
-import android.support.annotation.IntDef;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.AnyThread;
+import androidx.annotation.IntDef;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import com.android.tv.common.SoftPreconditions;
@@ -262,3 +262,4 @@ public class RecordingStorageStatusManager {
         return new MountedStorageStatus(storageMounted, storageMountedDir, storageMountedCapacity);
     }
 }
+

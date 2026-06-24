@@ -17,7 +17,7 @@
 package com.android.tv.tuner.source;
 
 import android.content.Context;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import com.android.tv.tuner.api.Tuner;
 import com.android.tv.tuner.data.Channel;
 import com.android.tv.tuner.data.TunerChannel;
@@ -143,3 +143,4 @@ public class TsDataSourceManager {
         mTunerStreamerManager.release(mId);
     }
 }
+

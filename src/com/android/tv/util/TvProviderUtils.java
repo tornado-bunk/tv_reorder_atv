@@ -23,9 +23,9 @@ import android.media.tv.TvContract;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.StringDef;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.StringDef;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 import com.android.tv.data.api.BaseProgram;
 import com.android.tv.features.PartnerFeatures;
@@ -171,12 +171,12 @@ public final class TvProviderUtils {
         try {
             result =
                     context.getContentResolver()
-                            .call(uri, TvContract.METHOD_GET_COLUMNS, uri.toString(), null);
+                            .call(uri, "get_columns", uri.toString(), null);
         } catch (Exception e) {
             Log.e(TAG, "Error trying to get existing columns.", e);
         }
         if (result != null) {
-            String[] columns = result.getStringArray(TvContract.EXTRA_EXISTING_COLUMN_NAMES);
+            String[] columns = result.getStringArray("existing_column_names");
             if (columns != null) {
                 return new HashSet<>(Arrays.asList(columns));
             }
@@ -192,8 +192,8 @@ public final class TvProviderUtils {
      */
     private static boolean addColumnToTable(Context context, Uri contentUri, String columnName) {
         Bundle extra = new Bundle();
-        extra.putCharSequence(TvContract.EXTRA_COLUMN_NAME, columnName);
-        extra.putCharSequence(TvContract.EXTRA_DATA_TYPE, "TEXT");
+        extra.putCharSequence("column_name", columnName);
+        extra.putCharSequence("data_type", "TEXT");
         // If the add operation fails, the following just returns null without crashing.
         Bundle allColumns = null;
         try {
@@ -201,7 +201,7 @@ public final class TvProviderUtils {
                     context.getContentResolver()
                             .call(
                                     contentUri,
-                                    TvContract.METHOD_ADD_COLUMN,
+                                    "add_column",
                                     contentUri.toString(),
                                     extra);
         } catch (Exception e) {
@@ -215,3 +215,4 @@ public final class TvProviderUtils {
 
     private TvProviderUtils() {}
 }
+

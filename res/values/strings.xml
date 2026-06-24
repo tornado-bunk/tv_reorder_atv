@@ -1066,4 +1066,11 @@
     <string name="interactive_app_settings">Interactive app settings</string>
     <string name="tv_iapp_on">On</string>
     <string name="tv_iapp_off">Off</string>
+
+    <!-- Channel Reordering -->
+    <string name="settings_reorder_channels">Reorder channels</string>
+    <string name="settings_reorder_channels_description">Change the display order of the channels</string>
+    <string name="reorder_channels_title">Reorder Channels</string>
+    <string name="reorder_channel_moving_format">[MOVE] %1$s</string>
+    <string name="reorder_channel_number_format">Channel %1$s</string>
 </resources>

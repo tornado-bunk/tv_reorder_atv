@@ -15,12 +15,12 @@
  */
 package com.android.tv.common.compat.internal;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import com.android.tv.common.compat.api.PrivateCommandSender;
 import com.android.tv.common.compat.api.RecordingClientCallbackCompatEvents;
 import com.android.tv.common.compat.api.TvViewCompatCommands;
-import com.android.tv.common.compat.internal.Commands.OnDevMessage;
+import com.android.tv.common.compat.internal.RecordingCommands.OnDevMessage;
 import com.android.tv.common.compat.internal.Commands.PrivateCommand;
 import com.android.tv.common.compat.internal.RecordingEvents.NotifyDevToast;
 import com.android.tv.common.compat.internal.RecordingEvents.RecordingSessionEvent;
@@ -83,3 +83,4 @@ public final class RecordingClientCompatProcessor
         }
     }
 }
+

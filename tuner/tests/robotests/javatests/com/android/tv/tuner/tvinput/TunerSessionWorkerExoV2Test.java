@@ -25,7 +25,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.accessibility.CaptioningManager;
 
 import com.android.tv.common.CommonConstants;
@@ -217,3 +217,4 @@ public class TunerSessionWorkerExoV2Test {
         assertThat(mHandler.hasMessages(TunerSessionWorker.MSG_CHECK_SIGNAL)).isTrue();
     }
 }
+

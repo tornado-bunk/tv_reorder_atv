@@ -15,7 +15,7 @@
  */
 package com.android.tv.tuner.exoplayer2;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.android.exoplayer2.source.BaseMediaSource;
 import com.google.android.exoplayer2.source.MediaPeriod;
@@ -70,3 +70,4 @@ public final class MpegTsMediaSource extends BaseMediaSource {
         ((MpegTsMediaPeriod) mediaPeriod).release();
     }
 }
+

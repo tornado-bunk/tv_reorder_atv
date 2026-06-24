@@ -17,8 +17,8 @@
 package com.android.tv.tuner.exoplayer.buffer;
 
 import android.os.ConditionVariable;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import com.android.tv.tuner.exoplayer.MpegTsPlayer;
@@ -323,3 +323,4 @@ public class RecordingSampleBuffer
         }
     }
 }
+

@@ -18,7 +18,7 @@ package com.android.tv;
 
 import android.content.Context;
 import android.media.tv.TvTrackInfo;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.util.SparseArray;
 import com.android.tv.data.DisplayMode;
 import java.lang.annotation.Retention;
@@ -126,3 +126,4 @@ public class TvOptionsManager {
         void onOptionChanged(@OptionType int optionType, String newString);
     }
 }
+

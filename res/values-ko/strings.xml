@@ -356,4 +356,10 @@
     <string name="dvr_date_tomorrow_time" msgid="8364654556105292594">"내일 <xliff:g id="TIME_RANGE">%1$s</xliff:g>"</string>
     <string name="program_guide_critic_score" msgid="340530743913585150">"점수"</string>
     <string name="recorded_programs_preview_channel" msgid="890404366427245812">"녹화된 프로그램"</string>
+    <!-- Channel Reordering -->
+    <string name="settings_reorder_channels">"채널 재정렬"</string>
+    <string name="settings_reorder_channels_description">"채널의 표시 순서를 변경합니다"</string>
+    <string name="reorder_channels_title">"채널 재정렬"</string>
+    <string name="reorder_channel_moving_format">"[이동] %1$s"</string>
+    <string name="reorder_channel_number_format">"채널 %1$s"</string>
 </resources>

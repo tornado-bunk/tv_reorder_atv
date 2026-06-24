@@ -16,7 +16,7 @@
 
 package com.android.tv.ui.sidepanel;
 
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -94,3 +94,4 @@ public abstract class Item {
         }
     }
 }
+

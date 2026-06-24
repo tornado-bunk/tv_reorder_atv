@@ -16,9 +16,9 @@
 
 package com.android.tv;
 
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.ArraySet;
 import com.android.tv.data.api.Channel;
 import java.util.Set;
@@ -98,3 +98,4 @@ public final class MainActivityWrapper {
         void onCurrentChannelChange(@Nullable Channel channel);
     }
 }
+

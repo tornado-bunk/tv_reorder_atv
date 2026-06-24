@@ -21,7 +21,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.format.DateUtils;
 
 import androidx.leanback.app.GuidedStepFragment;
@@ -212,3 +212,4 @@ public class DvrScheduleFragment extends DvrGuidedStepFragment {
         }
     }
 }
+

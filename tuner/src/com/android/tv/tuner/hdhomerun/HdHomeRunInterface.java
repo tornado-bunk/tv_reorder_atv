@@ -16,9 +16,9 @@
 
 package com.android.tv.tuner.hdhomerun;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 import com.android.tv.tuner.hdhomerun.HdHomeRunDiscover.HdHomeRunDiscoverDevice;
 import java.util.HashSet;
@@ -132,3 +132,4 @@ public class HdHomeRunInterface {
 
     private HdHomeRunInterface() {}
 }
+

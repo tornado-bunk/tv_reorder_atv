@@ -19,7 +19,7 @@ package com.android.tv.tuner.setup;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.leanback.widget.GuidanceStylist.Guidance;
 import androidx.leanback.widget.GuidedAction;
 import com.android.tv.common.ui.setup.SetupGuidedStepFragment;
@@ -132,3 +132,4 @@ public class ScanResultFragment extends SetupMultiPaneFragment {
         }
     }
 }
+

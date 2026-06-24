@@ -21,6 +21,8 @@ syntax = "proto3";
 
 package android.tv.common.compat.internal;
 
+import "recording_events.proto";
+
 option java_outer_classname = "Events";
 option java_package = "com.android.tv.common.compat.internal";
 
@@ -32,12 +34,6 @@ message SessionEvent {
     NotifyDevToast notify_dev_message = 2;
     NotifySignalStrength notify_signal_strength = 3;
   }
-}
-
-// Send a message to the application to be displayed as a toast on dev builds
-// only
-message NotifyDevToast {
-  string message = 1;
 }
 
 // Notifies the TV Application the current signal strength.

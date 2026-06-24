@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.tv.TvTrackInfo;
 import android.preference.PreferenceManager;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
@@ -258,3 +258,4 @@ public final class TvSettings {
                 .apply();
     }
 }
+

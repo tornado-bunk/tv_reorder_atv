@@ -22,6 +22,8 @@ syntax = "proto3";
 
 package android.tv.common.compat.internal;
 
+import "recording_commands.proto";
+
 option java_outer_classname = "Commands";
 option java_package = "com.android.tv.common.compat.internal";
 
@@ -32,9 +34,4 @@ message PrivateCommand {
   oneof command {
     OnDevMessage on_dev_message = 2;
   }
-}
-
-// Sends a debug message to the session for display on dev builds only
-message OnDevMessage {
-  string message = 1;
 }

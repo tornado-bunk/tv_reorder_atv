@@ -16,7 +16,7 @@
 package com.android.tv.tuner.api;
 
 import android.content.Context;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.util.Pair;
 
 /** Factory for {@link Tuner}. */
@@ -29,3 +29,4 @@ public interface TunerFactory {
     @WorkerThread
     Pair<Integer, Integer> getTunerTypeAndCount(Context context);
 }
+

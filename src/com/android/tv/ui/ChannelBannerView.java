@@ -26,7 +26,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputInfo;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -936,3 +936,4 @@ public class ChannelBannerView extends FrameLayout
         mAutoHideScheduler.onAccessibilityStateChanged(enabled);
     }
 }
+

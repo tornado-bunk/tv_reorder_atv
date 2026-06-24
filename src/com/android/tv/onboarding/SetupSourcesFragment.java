@@ -21,7 +21,7 @@ import android.graphics.Typeface;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager.TvInputCallback;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -432,3 +432,4 @@ public class SetupSourcesFragment extends SetupMultiPaneFragment {
         }
     }
 }
+

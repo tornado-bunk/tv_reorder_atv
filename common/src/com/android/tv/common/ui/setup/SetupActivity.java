@@ -22,7 +22,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
@@ -160,3 +160,4 @@ public abstract class SetupActivity extends DaggerActivity implements OnActionCl
         }
     }
 }
+

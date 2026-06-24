@@ -21,7 +21,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
-import android.hardware.hdmi.HdmiDeviceInfo;
 import android.media.tv.TvContentRatingSystemInfo;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager;
@@ -30,9 +29,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -114,7 +113,11 @@ public class TvInputManagerHelper {
 
         @Override
         public List<TvContentRatingSystemInfo> getTvContentRatingSystemList() {
-            return delegate.getTvContentRatingSystemList();
+            try {
+                return (List<TvContentRatingSystemInfo>) TvInputManager.class.getMethod("getTvContentRatingSystemList").invoke(delegate);
+            } catch (Exception e) {
+                return Collections.emptyList();
+            }
         }
     }
 
@@ -835,21 +838,32 @@ public class TvInputManagerHelper {
         }
 
         private int getTvInputTypeForPriority(TvInputInfo info) {
-            if (info.getHdmiDeviceInfo() != null) {
-                if (info.getHdmiDeviceInfo().isCecDevice()) {
-                    switch (info.getHdmiDeviceInfo().getDeviceType()) {
-                        case HdmiDeviceInfo.DEVICE_RECORDER:
-                            return TYPE_CEC_DEVICE_RECORDER;
-                        case HdmiDeviceInfo.DEVICE_PLAYBACK:
-                            return TYPE_CEC_DEVICE_PLAYBACK;
-                        default:
-                            return TYPE_CEC_DEVICE;
+            try {
+                Object hdmiDeviceInfo = TvInputInfo.class.getMethod("getHdmiDeviceInfo").invoke(info);
+                if (hdmiDeviceInfo != null) {
+                    boolean isCecDevice = (boolean) hdmiDeviceInfo.getClass().getMethod("isCecDevice").invoke(hdmiDeviceInfo);
+                    if (isCecDevice) {
+                        int deviceType = (int) hdmiDeviceInfo.getClass().getMethod("getDeviceType").invoke(hdmiDeviceInfo);
+                        switch (deviceType) {
+                            case 1: // HdmiDeviceInfo.DEVICE_RECORDER
+                                return TYPE_CEC_DEVICE_RECORDER;
+                            case 4: // HdmiDeviceInfo.DEVICE_PLAYBACK
+                                return TYPE_CEC_DEVICE_PLAYBACK;
+                            default:
+                                return TYPE_CEC_DEVICE;
+                        }
+                    } else {
+                        boolean isMhlDevice = (boolean) hdmiDeviceInfo.getClass().getMethod("isMhlDevice").invoke(hdmiDeviceInfo);
+                        if (isMhlDevice) {
+                            return TYPE_MHL_MOBILE;
+                        }
                     }
-                } else if (info.getHdmiDeviceInfo().isMhlDevice()) {
-                    return TYPE_MHL_MOBILE;
                 }
+            } catch (Exception e) {
+                // fall through
             }
             return info.getType();
         }
     }
 }
+

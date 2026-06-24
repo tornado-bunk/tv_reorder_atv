@@ -21,7 +21,7 @@ import android.content.res.Resources;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputManager.TvInputCallback;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.leanback.widget.VerticalGridView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
@@ -261,7 +261,13 @@ public class SelectInputView extends VerticalGridView
         }
         // Do not show HDMI ports if a CEC device is directly connected to the port.
         for (TvInputInfo input : inputMap.values()) {
-            if (input.getParentId() != null && !input.isConnectedToHdmiSwitch()) {
+            boolean isConnectedToHdmiSwitch = false;
+            try {
+                isConnectedToHdmiSwitch = (boolean) TvInputInfo.class.getMethod("isConnectedToHdmiSwitch").invoke(input);
+            } catch (Exception e) {
+                // fall through
+            }
+            if (input.getParentId() != null && !isConnectedToHdmiSwitch) {
                 mInputList.remove(inputMap.get(input.getParentId()));
             }
         }
@@ -407,3 +413,4 @@ public class SelectInputView extends VerticalGridView
         void onPassthroughInputSelected(@NonNull TvInputInfo input);
     }
 }
+

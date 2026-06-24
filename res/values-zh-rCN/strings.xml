@@ -354,4 +354,10 @@
     <string name="dvr_date_tomorrow_time" msgid="8364654556105292594">"明天<xliff:g id="TIME_RANGE">%1$s</xliff:g>"</string>
     <string name="program_guide_critic_score" msgid="340530743913585150">"评分"</string>
     <string name="recorded_programs_preview_channel" msgid="890404366427245812">"已录制的节目"</string>
+    <!-- Channel Reordering -->
+    <string name="settings_reorder_channels">"重新排列频道"</string>
+    <string name="settings_reorder_channels_description">"更改频道的显示顺序"</string>
+    <string name="reorder_channels_title">"重新排列频道"</string>
+    <string name="reorder_channel_moving_format">"[移动] %1$s"</string>
+    <string name="reorder_channel_number_format">"频道 %1$s"</string>
 </resources>

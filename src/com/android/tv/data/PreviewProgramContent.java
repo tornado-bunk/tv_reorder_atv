@@ -18,7 +18,7 @@ package com.android.tv.data;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Pair;
 
@@ -263,3 +263,4 @@ public class PreviewProgramContent {
         }
     }
 }
+

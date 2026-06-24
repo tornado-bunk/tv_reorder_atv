@@ -16,7 +16,7 @@
 
 package com.android.tv.data.epg;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -105,3 +105,4 @@ public final class EpgInputWhiteList {
         return result.build();
     }
 }
+

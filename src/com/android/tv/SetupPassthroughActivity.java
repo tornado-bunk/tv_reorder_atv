@@ -24,7 +24,7 @@ import android.media.tv.TvInputInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import android.util.Log;
 
 import com.android.tv.common.CommonConstants;
@@ -118,7 +118,8 @@ public class SetupPassthroughActivity extends Activity {
             try {
                 ComponentName callingActivity = getCallingActivity();
                 if (callingActivity == null
-                        || !callingActivity.getPackageName().equals(CommonConstants.BASE_PACKAGE)) {
+                        || (!callingActivity.getPackageName().equals(CommonConstants.BASE_PACKAGE)
+                            && !callingActivity.getPackageName().equals(getPackageName()))) {
                    String name =
                         callingActivity == null ? "null" : callingActivity.getPackageName();
                     Log.w(TAG,
@@ -277,3 +278,4 @@ public class SetupPassthroughActivity extends Activity {
         abstract SetupPassthroughActivity contributesSetupPassthroughActivity();
     }
 }
+

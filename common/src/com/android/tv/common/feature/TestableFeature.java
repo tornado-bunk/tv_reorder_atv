@@ -17,7 +17,7 @@
 package com.android.tv.common.feature;
 
 import android.content.Context;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import com.android.tv.common.util.CommonUtils;
 
@@ -105,3 +105,4 @@ public class TestableFeature implements Feature {
         return msg;
     }
 }
+

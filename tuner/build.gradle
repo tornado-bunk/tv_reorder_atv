@@ -23,8 +23,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.google.protobuf'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    namespace 'com.android.tv.tuner'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
+
+    buildFeatures {
+        buildConfig true
+    }
 
     compileOptions() {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -48,7 +53,7 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
         }
     }
 
@@ -65,16 +70,18 @@ android {
 }
 
 dependencies {
+    compileOnly         'org.robolectric:android-all:14-robolectric-10818077'
     implementation      'androidx.annotation:annotation:1.1.0'
+    implementation      'com.android.support:support-annotations:28.0.0'
     implementation      'androidx.appcompat:appcompat:1.1.0'
     implementation      'androidx.leanback:leanback:1.1.0-alpha02'
     implementation      'androidx.recyclerview:recyclerview:1.1.0'
     implementation      'androidx.recyclerview:recyclerview-selection:1.0.0'
     implementation      'androidx.tvprovider:tvprovider:1.0.0'
 
-    implementation      'com.google.android.exoplayer:exoplayer:r1.5.16'
-    api                 'com.google.android.exoplayer:exoplayer-core:2.10.1'
-    implementation      'com.google.android.exoplayer:exoplayer-ui:2.10.1'
+    compileOnly         files(rootProject.file('libs/exoplayer-r1.5.16.aar'))
+    compileOnly         files(rootProject.file('libs/exoplayer-core-2.10.1.aar'))
+    compileOnly         files(rootProject.file('libs/exoplayer-ui-2.10.1.aar'))
     annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta7'
     implementation      'com.google.auto.factory:auto-factory:1.0-beta7'
     implementation      'com.google.dagger:dagger:2.23'

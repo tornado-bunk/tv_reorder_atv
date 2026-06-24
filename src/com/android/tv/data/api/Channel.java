@@ -18,7 +18,7 @@ package com.android.tv.data.api;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.android.tv.util.images.ImageLoader.ImageLoaderCallback;
 
 /**
@@ -132,3 +132,4 @@ public interface Channel {
             int mPosterArtWidth,
             int mPosterArtHeight);
 }
+

@@ -19,7 +19,7 @@ package com.android.tv.tuner.exoplayer.buffer;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Pair;
 import com.android.tv.common.SoftPreconditions;
 import java.io.File;
@@ -147,3 +147,4 @@ public class TrickplayStorageManager implements BufferManager.StorageManager {
     public void updateIndexFile(
             String trackName, int size, long position, SampleChunk sampleChunk, int offset) {}
 }
+

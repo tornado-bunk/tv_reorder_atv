@@ -721,9 +721,9 @@ public class TunerRecordingSessionWorkerExoV2
     private Set<String> getExistingColumns(Uri uri) {
         Bundle result =
                 mContext.getContentResolver()
-                        .call(uri, TvContract.METHOD_GET_COLUMNS, uri.toString(), null);
+                        .call(uri, "get_columns", uri.toString(), null);
         if (result != null) {
-            String[] columns = result.getStringArray(TvContract.EXTRA_EXISTING_COLUMN_NAMES);
+            String[] columns = result.getStringArray("existing_column_names");
             if (columns != null) {
                 return new HashSet<>(Arrays.asList(columns));
             }
@@ -739,14 +739,14 @@ public class TunerRecordingSessionWorkerExoV2
      */
     private boolean addColumnToTable(Uri contentUri, String columnName) {
         Bundle extra = new Bundle();
-        extra.putCharSequence(TvContract.EXTRA_COLUMN_NAME, columnName);
-        extra.putCharSequence(TvContract.EXTRA_DATA_TYPE, "TEXT");
+        extra.putCharSequence("column_name", columnName);
+        extra.putCharSequence("data_type", "TEXT");
         // If the add operation fails, the following just returns null without crashing.
         Bundle allColumns =
                 mContext.getContentResolver()
                         .call(
                                 contentUri,
-                                TvContract.METHOD_ADD_COLUMN,
+                                "add_column",
                                 contentUri.toString(),
                                 extra);
         if (allColumns == null) {

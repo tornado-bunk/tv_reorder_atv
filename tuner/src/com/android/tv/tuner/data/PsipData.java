@@ -16,7 +16,7 @@
 
 package com.android.tv.tuner.data;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import com.android.tv.common.util.StringUtils;
@@ -868,3 +868,4 @@ public class PsipData {
         }
     }
 }
+

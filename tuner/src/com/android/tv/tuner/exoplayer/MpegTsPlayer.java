@@ -21,7 +21,7 @@ import android.media.AudioFormat;
 import android.media.MediaCodec.CryptoException;
 import android.media.PlaybackParams;
 import android.os.Handler;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.Surface;
 import com.android.tv.common.SoftPreconditions;
 import com.android.tv.tuner.data.Cea708Data;
@@ -668,3 +668,4 @@ public class MpegTsPlayer
         }
     }
 }
+

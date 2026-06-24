@@ -216,7 +216,13 @@ public class DvrPlaybackOverlayFragment extends PlaybackFragment {
                     @Override
                     public void onContentBlocked(TvContentRating contentRating) {
                         if (mPinChecked) {
-                            mTvView.unblockContent(contentRating);
+                            try {
+                                java.lang.reflect.Method method = android.media.tv.TvView.class.getMethod(
+                                        "unblockContent", android.media.tv.TvContentRating.class);
+                                method.invoke(mTvView, contentRating);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Error invoking unblockContent", e);
+                            }
                             return;
                         }
                         mBlockScreenView.setVisibility(View.VISIBLE);
@@ -231,7 +237,13 @@ public class DvrPlaybackOverlayFragment extends PlaybackFragment {
                                                         .setOnPinCheckListener(null);
                                                 if (checked) {
                                                     mPinChecked = true;
-                                                    mTvView.unblockContent(contentRating);
+                                                    try {
+                                                        java.lang.reflect.Method method = android.media.tv.TvView.class.getMethod(
+                                                                "unblockContent", android.media.tv.TvContentRating.class);
+                                                        method.invoke(mTvView, contentRating);
+                                                    } catch (Exception e) {
+                                                        Log.e(TAG, "Error invoking unblockContent", e);
+                                                    }
                                                     mBlockScreenView.setVisibility(View.GONE);
                                                     getActivity()
                                                             .getMediaController()

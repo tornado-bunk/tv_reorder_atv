@@ -21,7 +21,7 @@ import android.media.tv.TvInputInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.LongSparseArray;
@@ -455,3 +455,4 @@ public class InputTaskScheduler {
         }
     }
 }
+

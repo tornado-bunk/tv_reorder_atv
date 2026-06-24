@@ -17,7 +17,7 @@
 package com.android.tv.tuner.data;
 
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.util.Log;
 import android.util.SparseIntArray;
 import com.android.tv.tuner.data.Cea708Data.CaptionColor;
@@ -925,3 +925,4 @@ public class Cea708Parser {
         return pos;
     }
 }
+

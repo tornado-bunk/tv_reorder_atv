@@ -2,7 +2,7 @@ package com.android.tv.data.api;
 
 import android.content.Context;
 import android.media.tv.TvContentRating;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 import java.util.Comparator;
 import java.util.Objects;
@@ -139,3 +139,4 @@ public interface BaseProgram {
         }
     }
 }
+

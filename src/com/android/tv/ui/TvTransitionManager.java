@@ -18,7 +18,7 @@ package com.android.tv.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.transition.Fade;
 import android.transition.Scene;
 import android.transition.Transition;
@@ -324,3 +324,4 @@ public class TvTransitionManager extends TransitionManager {
         void onSceneChanged(@SceneType int fromSceneType, @SceneType int toSceneType);
     }
 }
+

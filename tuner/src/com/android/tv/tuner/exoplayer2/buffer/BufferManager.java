@@ -18,8 +18,8 @@ package com.android.tv.tuner.exoplayer2.buffer;
 
 import android.media.MediaFormat;
 import android.os.ConditionVariable;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Pair;
@@ -730,3 +730,4 @@ public class BufferManager {
         mMinSampleSizeForSpeedCheck = sampleSize;
     }
 }
+

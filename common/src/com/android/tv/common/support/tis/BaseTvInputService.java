@@ -21,8 +21,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.android.tv.common.support.tis.TifSession.TifSessionFactory;
 
 /** Abstract TVInputService. */
@@ -88,3 +88,4 @@ public abstract class BaseTvInputService extends TvInputService {
 
     protected abstract SessionManager getSessionManager();
 }
+

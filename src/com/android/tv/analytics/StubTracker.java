@@ -16,7 +16,7 @@
 
 package com.android.tv.analytics;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import com.android.tv.TimeShiftManager;
 import com.android.tv.data.api.Channel;
 
@@ -122,3 +122,4 @@ public class StubTracker implements Tracker {
     @Override
     public void sendTimeShiftAction(@TimeShiftManager.TimeShiftActionId int actionId) {}
 }
+

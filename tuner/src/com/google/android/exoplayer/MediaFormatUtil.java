@@ -15,7 +15,7 @@
  */
 package com.google.android.exoplayer;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.google.android.exoplayer.util.MimeTypes;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -94,3 +94,4 @@ public class MediaFormatUtil {
         return format.containsKey(key) ? format.getInteger(key) : MediaFormat.NO_VALUE;
     }
 }
+

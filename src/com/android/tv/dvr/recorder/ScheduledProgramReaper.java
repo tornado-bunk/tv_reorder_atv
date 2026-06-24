@@ -16,7 +16,7 @@
 
 package com.android.tv.dvr.recorder;
 
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import com.android.tv.common.util.Clock;
 import com.android.tv.dvr.WritableDvrDataManager;
 import com.android.tv.dvr.data.ScheduledRecording;
@@ -62,3 +62,4 @@ public class ScheduledProgramReaper implements Runnable {
         }
     }
 }
+

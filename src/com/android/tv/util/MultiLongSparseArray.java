@@ -16,7 +16,7 @@
 
 package com.android.tv.util;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArraySet;
 import android.util.LongSparseArray;
 import java.util.Collections;
@@ -109,3 +109,4 @@ public class MultiLongSparseArray<T> {
         return mSparseArray.toString() + "(emptyCacheSize=" + getEmptyCacheSize() + ")";
     }
 }
+

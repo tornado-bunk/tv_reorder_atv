@@ -21,8 +21,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -84,3 +84,4 @@ public final class EpgInputs {
 
     private EpgInputs() {}
 }
+

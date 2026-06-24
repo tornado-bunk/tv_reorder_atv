@@ -21,7 +21,7 @@ import android.media.tv.TvRecordingClient;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.ArrayMap;
 import com.android.tv.common.compat.api.PrivateCommandSender;
 import com.android.tv.common.compat.api.RecordingClientCallbackCompatEvents;
@@ -76,11 +76,10 @@ public class TvRecordingClientCompat extends TvRecordingClient
         private final ArrayMap<String, Integer> inputCompatVersionMap = new ArrayMap<>();
         private RecordingClientCompatProcessor mClientCompatProcessor;
 
-        @Override
         public void onEvent(String inputId, String eventType, Bundle eventArgs) {
             if (mClientCompatProcessor != null
                     && !mClientCompatProcessor.handleEvent(inputId, eventType, eventArgs)) {
-                super.onEvent(inputId, eventType, eventArgs);
+                // super.onEvent(inputId, eventType, eventArgs);
             }
         }
 
@@ -99,3 +98,4 @@ public class TvRecordingClientCompat extends TvRecordingClient
         public void onRecordingStarted(String inputId, String recUri) {}
     }
 }
+

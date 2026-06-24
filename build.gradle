@@ -23,17 +23,23 @@ apply plugin: 'com.android.application'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven { url 'https://jcenter.bintray.com' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.10'
+        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.9.4'
     }
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    namespace 'com.android.tv'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
+
+    buildFeatures {
+        buildConfig true
+    }
 
     compileOptions() {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -50,22 +56,24 @@ android {
         }
         release {
             minifyEnabled true
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.flags'
         }
     }
 
     defaultConfig {
+        applicationId "com.tvreorder.tv"
         minSdkVersion 23
-        resConfigs "en"
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
 
     sourceSets {
         main {
             res.srcDirs = ['res', 'material_res', 'ratings/res']
             java.srcDirs = ['src', 'partner_support/src']
-            manifest.srcFile 'AndroidManifest.xml'
+            manifest.srcFile 'AndroidManifest_common.xml'
         }
     }
 }
@@ -73,29 +81,37 @@ android {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven { url 'https://jcenter.bintray.com' }
     }
 }
 
 dependencies {
+    compileOnly         'org.robolectric:android-all:14-robolectric-10818077'
     implementation      'androidx.appcompat:appcompat:1.1.0'
+    implementation      'com.android.support:support-annotations:28.0.0'
     implementation      'androidx.core:core:1.1.0'
     implementation      'androidx.palette:palette:1.0.0'
     implementation      'androidx.leanback:leanback:1.1.0-alpha02'
     implementation      'androidx.recyclerview:recyclerview:1.1.0'
     implementation      'androidx.recyclerview:recyclerview-selection:1.0.0'
     implementation      'androidx.tvprovider:tvprovider:1.0.0'
+    implementation      'androidx.constraintlayout:constraintlayout:1.1.3'
 
     annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta7'
-    implementation      'com.google.auto.factory:auto-factory:1.0-beta7'
+    compileOnly         'com.google.auto.factory:auto-factory:1.0-beta7'
     annotationProcessor 'com.google.auto.value:auto-value:1.5.3'
-    implementation      'com.google.auto.value:auto-value:1.5.3'
+    compileOnly         'com.google.auto.value:auto-value:1.5.3'
     implementation      'com.google.dagger:dagger:2.23'
     implementation      'com.google.dagger:dagger-android:2.23'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.23'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.23'
     implementation      'com.google.guava:guava:28.1-jre'
     implementation      'com.google.protobuf:protobuf-javalite:3.11.0'
+
+    implementation      files('libs/exoplayer-r1.5.16.aar')
+    implementation      files('libs/exoplayer-core-2.10.1.aar')
+    implementation      files('libs/exoplayer-ui-2.10.1.aar')
 
     implementation      project(':common')
 }

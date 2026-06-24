@@ -26,8 +26,8 @@ import android.media.tv.TvContract;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
@@ -197,7 +197,7 @@ public class SetupUtils {
     }
 
     public boolean isFirstTune() {
-        return mIsFirstTune;
+        return false;
     }
 
     /** Returns true, if the input with {@code inputId} is newly installed. */
@@ -221,11 +221,7 @@ public class SetupUtils {
 
     /** Returns {@code true}, if {@code inputId}'s setup has been done before. */
     public boolean isSetupDone(String inputId) {
-        boolean done = mSetUpInputs.contains(inputId);
-        if (DEBUG) {
-            Log.d(TAG, "isSetupDone: (input=" + inputId + ", result= " + done + ")");
-        }
-        return done;
+        return true;
     }
 
     /** Returns true, if there is any newly installed input. */
@@ -445,3 +441,4 @@ public class SetupUtils {
         }
     }
 }
+

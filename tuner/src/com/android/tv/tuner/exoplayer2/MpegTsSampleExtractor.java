@@ -19,7 +19,7 @@ package com.android.tv.tuner.exoplayer2;
 import android.media.MediaFormat;
 import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.tv.tuner.exoplayer2.buffer.BufferManager;
 import com.android.tv.tuner.exoplayer2.buffer.InputBufferPool;
@@ -383,3 +383,4 @@ public final class MpegTsSampleExtractor implements SampleExtractor, SampleExtra
         }
     }
 }
+

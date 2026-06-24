@@ -17,8 +17,8 @@
 package com.android.tv.recommendation;
 
 import android.content.Context;
-import android.support.annotation.GuardedBy;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.tv.TvSingletons;
 import com.android.tv.data.ProgramDataManager;
@@ -97,3 +97,4 @@ public class ChannelRecord {
         }
     }
 }
+

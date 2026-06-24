@@ -23,7 +23,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import androidx.leanback.widget.RowPresenter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -897,3 +897,4 @@ class ScheduleRowPresenter extends RowPresenter {
                 || row.isRecordingFailed();
     }
 }
+

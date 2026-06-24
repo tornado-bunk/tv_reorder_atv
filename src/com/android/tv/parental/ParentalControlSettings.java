@@ -57,7 +57,7 @@ public class ParentalControlSettings {
     }
 
     public void setParentalControlsEnabled(boolean enabled) {
-        mTvInputManager.setParentalControlsEnabled(enabled);
+        setParentalControlsEnabled(mTvInputManager, enabled);
     }
 
     public void setContentRatingSystemEnabled(
@@ -73,7 +73,7 @@ public class ParentalControlSettings {
             // Ensure no ratings are blocked for the selected rating system
             for (TvContentRating tvContentRating : mTvInputManager.getBlockedRatings()) {
                 if (contentRatingSystem.ownsRating(tvContentRating)) {
-                    mTvInputManager.removeBlockedRating(tvContentRating);
+                    removeBlockedRating(mTvInputManager, tvContentRating);
                 }
             }
 
@@ -93,13 +93,13 @@ public class ParentalControlSettings {
         Set<TvContentRating> removed = new HashSet<>(mTvInputManager.getBlockedRatings());
         removed.removeAll(mRatings);
         for (TvContentRating tvContentRating : removed) {
-            mTvInputManager.removeBlockedRating(tvContentRating);
+            removeBlockedRating(mTvInputManager, tvContentRating);
         }
 
         Set<TvContentRating> added = new HashSet<>(mRatings);
         added.removeAll(mTvInputManager.getBlockedRatings());
         for (TvContentRating tvContentRating : added) {
-            mTvInputManager.addBlockedRating(tvContentRating);
+            addBlockedRating(mTvInputManager, tvContentRating);
         }
     }
 
@@ -150,10 +150,10 @@ public class ParentalControlSettings {
         boolean changed;
         if (blocked) {
             changed = mRatings.add(TvContentRating.UNRATED);
-            mTvInputManager.addBlockedRating(TvContentRating.UNRATED);
+            addBlockedRating(mTvInputManager, TvContentRating.UNRATED);
         } else {
             changed = mRatings.remove(TvContentRating.UNRATED);
-            mTvInputManager.removeBlockedRating(TvContentRating.UNRATED);
+            removeBlockedRating(mTvInputManager, TvContentRating.UNRATED);
         }
         if (changed) {
             // change to custom level if the blocked status is changed
@@ -264,10 +264,10 @@ public class ParentalControlSettings {
         boolean changed;
         if (blocked) {
             changed = mRatings.add(tvContentRating);
-            mTvInputManager.addBlockedRating(tvContentRating);
+            addBlockedRating(mTvInputManager, tvContentRating);
         } else {
             changed = mRatings.remove(tvContentRating);
-            mTvInputManager.removeBlockedRating(tvContentRating);
+            removeBlockedRating(mTvInputManager, tvContentRating);
         }
         if (changed) {
             changeToCustomLevel();
@@ -310,5 +310,29 @@ public class ParentalControlSettings {
                 contentRatingSystem.getName(),
                 rating.getName(),
                 subRating.getName());
+    }
+
+    private void setParentalControlsEnabled(TvInputManager manager, boolean enabled) {
+        try {
+            TvInputManager.class.getMethod("setParentalControlsEnabled", boolean.class).invoke(manager, enabled);
+        } catch (Exception e) {
+            android.util.Log.e("ParentalControlSettings", "Error calling setParentalControlsEnabled", e);
+        }
+    }
+
+    private void addBlockedRating(TvInputManager manager, TvContentRating rating) {
+        try {
+            TvInputManager.class.getMethod("addBlockedRating", TvContentRating.class).invoke(manager, rating);
+        } catch (Exception e) {
+            android.util.Log.e("ParentalControlSettings", "Error calling addBlockedRating", e);
+        }
+    }
+
+    private void removeBlockedRating(TvInputManager manager, TvContentRating rating) {
+        try {
+            TvInputManager.class.getMethod("removeBlockedRating", TvContentRating.class).invoke(manager, rating);
+        } catch (Exception e) {
+            android.util.Log.e("ParentalControlSettings", "Error calling removeBlockedRating", e);
+        }
     }
 }

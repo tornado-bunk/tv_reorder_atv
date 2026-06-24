@@ -25,10 +25,10 @@ import android.content.Intent;
 import android.media.tv.TvInputManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -741,3 +741,4 @@ public class DvrUiHelper {
         return new SpannableString(builder);
     }
 }
+

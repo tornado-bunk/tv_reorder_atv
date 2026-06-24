@@ -17,7 +17,7 @@
 package com.google.android.tv.partner.support;
 
 import android.content.ContentValues;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.google.auto.value.AutoValue;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,3 +80,4 @@ public abstract class Lineup {
     /** An unmodifiable list of channel numbers that this lineup has. */
     public abstract List<String> getChannels();
 }
+

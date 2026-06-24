@@ -7,7 +7,7 @@ import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.Surface;
 
 import com.android.tv.common.support.tis.TifSession.TifSessionCallbacks;
@@ -145,3 +145,4 @@ public class BaseTvInputServiceTest {
         assertThat(tvInputService.getParentalControlsChangedCount()).isEqualTo(0);
     }
 }
+

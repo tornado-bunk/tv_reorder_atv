@@ -16,8 +16,8 @@
 
 package com.android.tv.testing;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Range;
 
 import com.android.tv.data.ChannelImpl;
@@ -176,3 +176,4 @@ public final class FakeEpgReader implements EpgReader {
         return null;
     }
 }
+

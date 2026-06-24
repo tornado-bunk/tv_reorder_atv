@@ -15,8 +15,8 @@
  */
 package com.android.tv.tuner.api;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.StringDef;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -126,3 +126,4 @@ public interface Tuner extends AutoCloseable {
     @Retention(RetentionPolicy.SOURCE)
     public @interface BuiltInTunerType {}
 }
+

@@ -17,7 +17,7 @@
 package com.android.tv.tuner.data;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import com.android.tv.common.util.StringUtils;
 import com.android.tv.tuner.data.Channel.DeliverySystemType;
@@ -623,3 +623,4 @@ public class TunerChannel implements Comparable<TunerChannel>, PsipData.TvTracks
         return channel;
     }
 }
+

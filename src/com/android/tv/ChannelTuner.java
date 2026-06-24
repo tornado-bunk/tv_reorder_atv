@@ -20,8 +20,8 @@ import android.media.tv.TvContract;
 import android.media.tv.TvInputInfo;
 import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
 import android.util.ArraySet;
 import android.util.Log;
 import com.android.tv.common.SoftPreconditions;
@@ -358,3 +358,4 @@ public class ChannelTuner {
         }
     }
 }
+

@@ -18,7 +18,7 @@ package com.android.tv.tuner.exoplayer2;
 
 import android.media.MediaFormat;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.tv.tuner.exoplayer2.buffer.BufferManager;
 import com.android.tv.tuner.exoplayer2.buffer.PlaybackBufferListener;
@@ -280,3 +280,4 @@ public class FileSampleExtractor implements SampleExtractor {
     @Override
     public void setOnCompletionListener(OnCompletionListener listener, Handler handler) {}
 }
+

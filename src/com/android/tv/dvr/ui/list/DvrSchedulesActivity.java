@@ -19,7 +19,7 @@ package com.android.tv.dvr.ui.list;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import com.android.tv.R;
 import com.android.tv.Starter;
@@ -121,3 +121,4 @@ public class DvrSchedulesActivity extends Activity {
                 .commit();
     }
 }
+

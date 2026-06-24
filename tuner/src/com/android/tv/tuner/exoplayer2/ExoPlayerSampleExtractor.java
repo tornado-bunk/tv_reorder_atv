@@ -22,8 +22,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.util.Pair;
 
 import com.android.tv.tuner.exoplayer2.buffer.BufferManager;
@@ -545,3 +545,4 @@ public class ExoPlayerSampleExtractor implements SampleExtractor {
         return lastExtractedPositionUs;
     }
 }
+

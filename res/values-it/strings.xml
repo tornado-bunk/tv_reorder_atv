@@ -356,4 +356,11 @@
     <string name="dvr_date_tomorrow_time" msgid="8364654556105292594">"<xliff:g id="TIME_RANGE">%1$s</xliff:g> di domani"</string>
     <string name="program_guide_critic_score" msgid="340530743913585150">"Punteggio"</string>
     <string name="recorded_programs_preview_channel" msgid="890404366427245812">"Programmi registrati"</string>
+
+    <!-- Channel Reordering -->
+    <string name="settings_reorder_channels">Ordina canali</string>
+    <string name="settings_reorder_channels_description">Cambia l\'ordine di visualizzazione dei canali</string>
+    <string name="reorder_channels_title">Ordina Canali</string>
+    <string name="reorder_channel_moving_format">[SPOSTA] %1$s</string>
+    <string name="reorder_channel_number_format">Canale %1$s</string>
 </resources>

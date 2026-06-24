@@ -18,9 +18,9 @@ package com.android.tv.tuner.tvinput;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import com.android.tv.common.compat.RecordingSessionCompat;
@@ -146,3 +146,4 @@ public class TunerRecordingSession extends RecordingSessionCompat {
         return mRecordingUri;
     }
 }
+

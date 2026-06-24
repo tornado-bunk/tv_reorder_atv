@@ -26,9 +26,9 @@ import android.media.tv.TvContract.Programs.Genres;
 import android.media.tv.TvContract.RecordedPrograms;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.CheckResult;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.CheckResult;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.tv.common.R;
@@ -476,3 +476,4 @@ public abstract class RecordedProgram extends BaseProgramImpl {
         return recordedPrograms.toArray(new RecordedProgram[recordedPrograms.size()]);
     }
 }
+

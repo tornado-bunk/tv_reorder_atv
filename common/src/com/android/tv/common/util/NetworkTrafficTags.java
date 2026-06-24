@@ -17,7 +17,7 @@
 package com.android.tv.common.util;
 
 import android.net.TrafficStats;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
 
 /** Constants for tagging network traffic in the TV app. */
@@ -58,3 +58,4 @@ public final class NetworkTrafficTags {
 
     private NetworkTrafficTags() {}
 }
+

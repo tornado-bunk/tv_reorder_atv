@@ -42,10 +42,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
@@ -594,7 +594,12 @@ public class TunableTvView extends FrameLayout implements StreamInfo, TunableTvV
 
     public void setMain() {
         if (PermissionUtils.hasChangeHdmiCecActiveSource(getContext())) {
-            mTvView.setMain();
+            try {
+                java.lang.reflect.Method method = android.media.tv.TvView.class.getMethod("setMain");
+                method.invoke(mTvView);
+            } catch (Exception e) {
+                android.util.Log.e("TunableTvView", "Error invoking setMain", e);
+            }
         }
     }
 
@@ -817,7 +822,13 @@ public class TunableTvView extends FrameLayout implements StreamInfo, TunableTvV
     }
 
     public void unblockContent(TvContentRating rating) {
-        mTvView.unblockContent(rating);
+        try {
+            java.lang.reflect.Method method = android.media.tv.TvView.class.getMethod(
+                    "unblockContent", android.media.tv.TvContentRating.class);
+            method.invoke(mTvView, rating);
+        } catch (Exception e) {
+            android.util.Log.e("TunableTvView", "Error invoking unblockContent", e);
+        }
     }
 
     @Override
@@ -1515,3 +1526,4 @@ public class TunableTvView extends FrameLayout implements StreamInfo, TunableTvV
         }
     }
 }
+

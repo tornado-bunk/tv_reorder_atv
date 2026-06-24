@@ -20,7 +20,7 @@ import android.content.Context;
 import android.media.tv.TvInputService.RecordingSession;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import com.android.tv.common.compat.api.RecordingSessionCompatCommands;
 import com.android.tv.common.compat.api.RecordingSessionCompatEvents;
 import com.android.tv.common.compat.api.SessionEventNotifier;
@@ -66,4 +66,16 @@ public abstract class RecordingSessionCompat extends RecordingSession
     public void notifyRecordingStarted(String uri) {
         mProcessor.notifyRecordingStarted(uri);
     }
+
+    @Override
+    public void notifySessionEvent(String event, Bundle data) {
+        try {
+            java.lang.reflect.Method method = android.media.tv.TvInputService.RecordingSession.class.getMethod(
+                    "notifySessionEvent", String.class, Bundle.class);
+            method.invoke(this, event, data);
+        } catch (Exception e) {
+            android.util.Log.e("RecordingSessionCompat", "Error invoking notifySessionEvent", e);
+        }
+    }
 }
+

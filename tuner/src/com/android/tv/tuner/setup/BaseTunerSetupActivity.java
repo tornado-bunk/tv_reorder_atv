@@ -30,10 +30,10 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.MainThread;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
+import androidx.core.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -413,7 +413,6 @@ public abstract class BaseTunerSetupActivity extends SetupActivity {
                         .setContentIntent(
                                 createPendingIntentForSetupActivity(context, tunerSetupIntent))
                         .setVisibility(Notification.VISIBILITY_PUBLIC)
-                        .extend(new Notification.TvExtender())
                         .build();
         notificationManager.notify(NOTIFY_TAG, NOTIFY_ID, notification);
     }
@@ -541,3 +540,4 @@ public abstract class BaseTunerSetupActivity extends SetupActivity {
         }
     }
 }
+

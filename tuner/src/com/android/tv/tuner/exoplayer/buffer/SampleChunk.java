@@ -16,8 +16,8 @@
 
 package com.android.tv.tuner.exoplayer.buffer;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import com.google.android.exoplayer.SampleHolder;
 import java.io.File;
@@ -431,3 +431,4 @@ public class SampleChunk {
         return mWriteOffset;
     }
 }
+

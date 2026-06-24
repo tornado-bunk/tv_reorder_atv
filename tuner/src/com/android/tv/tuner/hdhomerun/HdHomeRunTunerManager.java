@@ -19,7 +19,7 @@ package com.android.tv.tuner.hdhomerun;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 import java.util.HashSet;
 import java.util.Set;
@@ -120,3 +120,4 @@ class HdHomeRunTunerManager {
         mHdHomeRunDevices.addAll(HdHomeRunInterface.scanDevices(deviceId));
     }
 }
+

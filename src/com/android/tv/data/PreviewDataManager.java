@@ -28,8 +28,8 @@ import android.media.tv.TvContract;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.annotation.MainThread;
+import androidx.annotation.IntDef;
+import androidx.annotation.MainThread;
 import android.util.Log;
 import android.util.Pair;
 
@@ -622,3 +622,4 @@ public class PreviewDataManager {
         }
     }
 }
+

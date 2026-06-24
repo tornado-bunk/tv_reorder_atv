@@ -22,8 +22,8 @@ import android.media.tv.TvContentRating;
 import android.media.tv.TvInputService.Session;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.FloatRange;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 import android.view.Surface;
 import android.view.View;
 import com.android.tv.common.support.tis.TifSession.TifSessionCallbacks;
@@ -146,3 +146,4 @@ final class WrappedSession extends Session implements TifSessionCallbacks {
         delegate.onOverlayViewSizeChanged(width, height);
     }
 }
+

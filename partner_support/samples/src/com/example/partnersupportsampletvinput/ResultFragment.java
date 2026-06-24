@@ -20,7 +20,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.tv.TvInputInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.leanback.app.GuidedStepFragment;
 import androidx.leanback.widget.GuidanceStylist;
 import androidx.leanback.widget.GuidanceStylist.Guidance;
@@ -93,3 +93,4 @@ public class ResultFragment extends GuidedStepFragment {
         getActivity().finishActivity(SampleTvInputSetupActivity.REQUEST_CODE_START_SETUP_ACTIVITY);
     }
 }
+

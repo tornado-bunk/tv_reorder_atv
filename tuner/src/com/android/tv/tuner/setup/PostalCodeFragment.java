@@ -17,7 +17,7 @@
 package com.android.tv.tuner.setup;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.leanback.widget.GuidanceStylist.Guidance;
 import androidx.leanback.widget.GuidedAction;
 import androidx.leanback.widget.GuidedActionsStylist;
@@ -197,3 +197,4 @@ public class PostalCodeFragment extends SetupMultiPaneFragment {
         }
     }
 }
+

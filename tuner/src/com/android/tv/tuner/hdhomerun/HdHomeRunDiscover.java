@@ -16,7 +16,7 @@
 
 package com.android.tv.tuner.hdhomerun;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import android.util.Pair;
 import java.io.IOException;
@@ -444,3 +444,4 @@ class HdHomeRunDiscover {
         int mSubnetMask;
     }
 }
+

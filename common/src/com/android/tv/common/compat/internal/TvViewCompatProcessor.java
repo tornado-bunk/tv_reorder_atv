@@ -15,14 +15,14 @@
  */
 package com.android.tv.common.compat.internal;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import com.android.tv.common.compat.api.PrivateCommandSender;
 import com.android.tv.common.compat.api.TvInputCallbackCompatEvents;
 import com.android.tv.common.compat.api.TvViewCompatCommands;
-import com.android.tv.common.compat.internal.Commands.OnDevMessage;
+import com.android.tv.common.compat.internal.RecordingCommands.OnDevMessage;
 import com.android.tv.common.compat.internal.Commands.PrivateCommand;
-import com.android.tv.common.compat.internal.Events.NotifyDevToast;
+import com.android.tv.common.compat.internal.RecordingEvents.NotifyDevToast;
 import com.android.tv.common.compat.internal.Events.NotifySignalStrength;
 import com.android.tv.common.compat.internal.Events.SessionEvent;
 
@@ -43,7 +43,7 @@ public final class TvViewCompatProcessor extends ViewCompatProcessor<PrivateComm
 
     @Override
     public void devMessage(String message) {
-        OnDevMessage devMessage = Commands.OnDevMessage.newBuilder().setMessage(message).build();
+        OnDevMessage devMessage = OnDevMessage.newBuilder().setMessage(message).build();
         Commands.PrivateCommand privateCommand =
                 createPrivateCommandCommand().setOnDevMessage(devMessage).build();
         sendCompatCommand(privateCommand);
@@ -88,3 +88,4 @@ public final class TvViewCompatProcessor extends ViewCompatProcessor<PrivateComm
         this.mCallback = callback;
     }
 }
+

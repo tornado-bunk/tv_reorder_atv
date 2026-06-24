@@ -18,8 +18,8 @@ package com.android.tv.tuner.data;
 
 import android.media.tv.TvContentRating;
 import android.media.tv.TvContract.Programs.Genres;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
@@ -2110,3 +2110,4 @@ public class SectionParser {
         return true;
     }
 }
+

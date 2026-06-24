@@ -20,7 +20,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.tv.common.dev.DeveloperPreferences;
 import com.android.tv.common.feature.CommonFeatures;
@@ -37,6 +37,12 @@ import javax.inject.Inject;
 /** The base application class for TV applications. */
 public abstract class BaseApplication extends DaggerApplication implements BaseSingletons {
     @Inject Lazy<RecordingStorageStatusManager> mRecordingStorageStatusManager;
+
+    private static BaseApplication sInstance;
+
+    public static BaseApplication getInstance() {
+        return sInstance;
+    }
 
     /**
      * An instance of {@link BaseSingletons}. Note that this can be set directly only for the test
@@ -62,6 +68,7 @@ public abstract class BaseApplication extends DaggerApplication implements BaseS
 
     @Override
     public void onCreate() {
+        sInstance = this;
         super.onCreate();
         Debug.getTimer(Debug.TAG_START_UP_TIMER).start();
         Debug.getTimer(Debug.TAG_START_UP_TIMER)

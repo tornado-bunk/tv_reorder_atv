@@ -22,10 +22,10 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 import com.android.tv.common.util.SharedPreferencesUtils;
 import com.android.tv.data.api.Channel;
@@ -303,3 +303,4 @@ public class WatchedHistoryManager {
         void onNewRecordAdded(WatchedRecord watchedRecord);
     }
 }
+

@@ -24,10 +24,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import com.android.tv.InputSessionManager;
 import com.android.tv.InputSessionManager.OnRecordingSessionChangeListener;
@@ -213,3 +213,4 @@ public class DvrRecordingService extends Service {
         }
     }
 }
+

@@ -25,9 +25,9 @@ import android.media.tv.TvInputInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.UiThread;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -1224,3 +1224,4 @@ public class TvOverlayManager implements AccessibilityStateChangeListener {
         }
     }
 }
+

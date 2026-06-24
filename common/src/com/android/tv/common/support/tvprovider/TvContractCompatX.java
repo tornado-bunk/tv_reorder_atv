@@ -16,7 +16,7 @@
 package com.android.tv.common.support.tvprovider;
 
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import androidx.tvprovider.media.tv.TvContractCompat;
 
 /**
@@ -106,3 +106,4 @@ public final class TvContractCompatX {
                 .build();
     }
 }
+

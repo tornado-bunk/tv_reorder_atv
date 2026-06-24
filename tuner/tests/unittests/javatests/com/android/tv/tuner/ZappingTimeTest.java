@@ -21,7 +21,7 @@ import android.graphics.SurfaceTexture;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
 import android.view.Surface;
@@ -448,3 +448,4 @@ public class ZappingTimeTest extends InstrumentationTestCase {
         }
     }
 }
+

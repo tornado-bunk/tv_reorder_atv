@@ -17,7 +17,7 @@
 package com.android.tv.tuner.exoplayer.buffer;
 
 import android.os.ConditionVariable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.tv.common.SoftPreconditions;
 import com.android.tv.tuner.exoplayer.SampleExtractor;
 import com.google.android.exoplayer.C;
@@ -174,3 +174,4 @@ public class SimpleSampleBuffer implements BufferManager.SampleBuffer {
         // Not used.
     }
 }
+

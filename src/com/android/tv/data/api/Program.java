@@ -3,8 +3,8 @@ package com.android.tv.data.api;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 
 import com.android.tv.util.images.ImageLoader;
 
@@ -139,3 +139,4 @@ public interface Program extends BaseProgram, Comparable<Program> {
         }
     }
 }
+

@@ -20,7 +20,7 @@ import android.content.Context;
 import android.media.tv.TvTrackInfo;
 import android.text.TextUtils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.tv.TvOptionsManager;
 import com.android.tv.common.BuildConfig;
@@ -181,3 +181,4 @@ public class TvOptionsRowAdapter extends CustomizableOptionsRowAdapter {
         }
     }
 }
+

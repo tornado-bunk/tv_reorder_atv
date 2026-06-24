@@ -17,7 +17,7 @@
 package com.android.tv.tuner.dvb;
 
 import android.content.Context;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 import android.util.Pair;
 
@@ -73,3 +73,4 @@ public final class DvbTunerHalFactory implements TunerFactory {
         return Pair.create(Tuner.TUNER_TYPE_BUILT_IN, DvbTunerHal.getNumberOfDevices(context));
     }
 }
+

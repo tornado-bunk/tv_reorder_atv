@@ -26,8 +26,8 @@ import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputInfo;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool;
 import android.text.Html;
@@ -910,3 +910,4 @@ class ProgramTableAdapter extends RecyclerView.Adapter<ProgramTableAdapter.Progr
         };
     }
 }
+

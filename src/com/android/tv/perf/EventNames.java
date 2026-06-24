@@ -18,7 +18,7 @@ package com.android.tv.perf;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 import java.lang.annotation.Retention;
 
 /**
@@ -61,3 +61,4 @@ public final class EventNames {
 
     private EventNames() {}
 }
+

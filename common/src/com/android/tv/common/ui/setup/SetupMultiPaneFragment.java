@@ -17,7 +17,7 @@
 package com.android.tv.common.ui.setup;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -124,3 +124,4 @@ public abstract class SetupMultiPaneFragment extends SetupFragment {
         };
     }
 }
+

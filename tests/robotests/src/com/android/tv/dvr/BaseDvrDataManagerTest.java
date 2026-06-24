@@ -17,7 +17,7 @@
 package com.android.tv.dvr;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.android.tv.common.feature.CommonFeatures;
 import com.android.tv.common.feature.TestableFeature;
@@ -94,3 +94,4 @@ public class BaseDvrDataManagerTest {
                 .build();
     }
 }
+

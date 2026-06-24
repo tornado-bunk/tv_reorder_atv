@@ -22,7 +22,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import androidx.leanback.widget.GuidanceStylist.Guidance;
 import androidx.leanback.widget.GuidedAction;
@@ -229,3 +229,4 @@ public class LocationFragment extends SetupMultiPaneFragment {
         }
     }
 }
+

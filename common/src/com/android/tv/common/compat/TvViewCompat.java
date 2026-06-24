@@ -20,7 +20,7 @@ import android.content.Context;
 import android.media.tv.TvView;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.ArrayMap;
 import android.util.AttributeSet;
 import com.android.tv.common.compat.api.PrivateCommandSender;
@@ -76,11 +76,10 @@ public class TvViewCompat extends TvView implements TvViewCompatCommands, Privat
         private final ArrayMap<String, Integer> inputCompatVersionMap = new ArrayMap<>();
         private TvViewCompatProcessor mTvViewCompatProcessor;
 
-        @Override
         public void onEvent(String inputId, String eventType, Bundle eventArgs) {
             if (mTvViewCompatProcessor != null
                     && !mTvViewCompatProcessor.handleEvent(inputId, eventType, eventArgs)) {
-                super.onEvent(inputId, eventType, eventArgs);
+                // super.onEvent(inputId, eventType, eventArgs);
             }
         }
 
@@ -109,3 +108,4 @@ public class TvViewCompat extends TvView implements TvViewCompatCommands, Privat
         public void onSignalStrength(String inputId, int value) {}
     }
 }
+

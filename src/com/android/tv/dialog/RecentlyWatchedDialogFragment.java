@@ -52,10 +52,10 @@ public class RecentlyWatchedDialogFragment extends SafeDismissDialogFragment
                 ((MainActivity) getActivity()).getChannelDataManager();
 
         String[] from = {
-            TvContract.WatchedPrograms._ID,
-            TvContract.WatchedPrograms.COLUMN_CHANNEL_ID,
-            TvContract.WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS,
-            TvContract.WatchedPrograms.COLUMN_TITLE
+            WatchedPrograms._ID,
+            WatchedPrograms.COLUMN_CHANNEL_ID,
+            WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS,
+            WatchedPrograms.COLUMN_TITLE
         };
         int[] to = {
             R.id.watched_program_id,
@@ -71,7 +71,7 @@ public class RecentlyWatchedDialogFragment extends SafeDismissDialogFragment
                     @Override
                     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
                         String name = cursor.getColumnName(columnIndex);
-                        if (TvContract.WatchedPrograms.COLUMN_CHANNEL_ID.equals(name)) {
+                        if (WatchedPrograms.COLUMN_CHANNEL_ID.equals(name)) {
                             long channelId = cursor.getLong(columnIndex);
                             ((TextView) view).setText(String.valueOf(channelId));
                             // Update display number
@@ -89,7 +89,7 @@ public class RecentlyWatchedDialogFragment extends SafeDismissDialogFragment
                                                             R.id.watched_program_channel_display_number));
                             displayNumberView.setText(displayNumber);
                             return true;
-                        } else if (TvContract.WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS
+                        } else if (WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS
                                 .equals(name)) {
                             long time = cursor.getLong(columnIndex);
                             CharSequence timeString =
@@ -128,18 +128,18 @@ public class RecentlyWatchedDialogFragment extends SafeDismissDialogFragment
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = {
-            TvContract.WatchedPrograms._ID,
-            TvContract.WatchedPrograms.COLUMN_CHANNEL_ID,
-            TvContract.WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS,
-            TvContract.WatchedPrograms.COLUMN_TITLE
+            WatchedPrograms._ID,
+            WatchedPrograms.COLUMN_CHANNEL_ID,
+            WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS,
+            WatchedPrograms.COLUMN_TITLE
         };
         return new CursorLoader(
                 getActivity(),
-                TvContract.WatchedPrograms.CONTENT_URI,
+                WatchedPrograms.CONTENT_URI,
                 projection,
                 null,
                 null,
-                TvContract.WatchedPrograms._ID + " DESC");
+                WatchedPrograms._ID + " DESC");
     }
 
     @Override
@@ -151,4 +151,13 @@ public class RecentlyWatchedDialogFragment extends SafeDismissDialogFragment
     public void onLoaderReset(Loader<Cursor> cursor) {
         mAdapter.changeCursor(null);
     }
+
+    private static final class WatchedPrograms {
+        public static final String _ID = "_id";
+        public static final android.net.Uri CONTENT_URI = android.net.Uri.parse("content://android.media.tv/watched_program");
+        public static final String COLUMN_CHANNEL_ID = "channel_id";
+        public static final String COLUMN_TITLE = "title";
+        public static final String COLUMN_WATCH_START_TIME_UTC_MILLIS = "watch_start_time_utc_millis";
+    }
 }
+

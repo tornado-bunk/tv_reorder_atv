@@ -187,29 +187,16 @@ public class TvViewUiManager {
      * ChannelsLockedFragment.
      */
     public void startShrunkenTvView() {
-        mIsUnderShrunkenTvView = true;
-        mTvView.setIsUnderShrunken(true);
-
-        mTvViewStartMarginBeforeShrunken = mTvViewStartMargin;
-        mTvViewEndMarginBeforeShrunken = mTvViewEndMargin;
-        setTvViewMargin(mTvViewShrunkenStartMargin, mTvViewShrunkenEndMargin);
-        mDisplayModeBeforeShrunken = setDisplayMode(DisplayMode.MODE_NORMAL, false, true);
+        // Disabled to keep stream full screen
     }
 
-    /**
-     * It is called when shrunken TvView is no longer desired, such as EditChannelFragment and
-     * ChannelsLockedFragment.
-     */
     public void endShrunkenTvView() {
-        mIsUnderShrunkenTvView = false;
-        mTvView.setIsUnderShrunken(false);
-        setTvViewMargin(mTvViewStartMarginBeforeShrunken, mTvViewEndMarginBeforeShrunken);
-        setDisplayMode(mDisplayModeBeforeShrunken, false, true);
+        // Disabled to keep stream full screen
     }
 
     /** Returns true, if TvView is shrunken. */
     public boolean isUnderShrunkenTvView() {
-        return mIsUnderShrunkenTvView;
+        return false;
     }
 
     /**

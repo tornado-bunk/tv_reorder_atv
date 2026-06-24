@@ -5,8 +5,8 @@ import static com.google.common.truth.Truth.assertThat;
 import android.media.tv.TvContentRating;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.FloatRange;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 import android.view.Surface;
 
 import com.android.tv.common.support.tis.TifSession.TifSessionCallbacks;
@@ -122,3 +122,4 @@ public class SimpleSessionManagerTest {
         public void onUnblockContent(TvContentRating unblockedRating) {}
     }
 }
+

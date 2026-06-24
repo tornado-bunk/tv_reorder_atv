@@ -24,7 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.tv.TvInputInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -249,3 +249,4 @@ public class OnboardingActivity extends SetupActivity {
         abstract OnboardingActivity contributeOnboardingActivityInjector();
     }
 }
+

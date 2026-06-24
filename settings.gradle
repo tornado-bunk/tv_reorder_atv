@@ -25,3 +25,6 @@ include ':SampleDvbTuner'
 project(":SampleDvbTuner").projectDir = file("tuner/SampleDvbTuner")
 include ':SampleNetworkTuner'
 project(":SampleNetworkTuner").projectDir = file("tuner/SampleNetworkTuner")
+
+rootProject.name = 'tv_reorder_atv'
+

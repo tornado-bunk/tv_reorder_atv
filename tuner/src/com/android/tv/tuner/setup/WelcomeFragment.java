@@ -17,8 +17,8 @@
 package com.android.tv.tuner.setup;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.leanback.widget.GuidanceStylist.Guidance;
 import androidx.leanback.widget.GuidedAction;
 import com.android.tv.common.ui.setup.SetupGuidedStepFragment;
@@ -126,3 +126,4 @@ public class WelcomeFragment extends SetupMultiPaneFragment {
         }
     }
 }
+

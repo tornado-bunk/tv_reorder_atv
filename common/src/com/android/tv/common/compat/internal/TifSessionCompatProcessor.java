@@ -20,7 +20,7 @@ import com.android.tv.common.compat.api.SessionCompatCommands;
 import com.android.tv.common.compat.api.SessionCompatEvents;
 import com.android.tv.common.compat.api.SessionEventNotifier;
 import com.android.tv.common.compat.internal.Commands.PrivateCommand;
-import com.android.tv.common.compat.internal.Events.NotifyDevToast;
+import com.android.tv.common.compat.internal.RecordingEvents.NotifyDevToast;
 import com.android.tv.common.compat.internal.Events.NotifySignalStrength;
 import com.android.tv.common.compat.internal.Events.SessionEvent;
 

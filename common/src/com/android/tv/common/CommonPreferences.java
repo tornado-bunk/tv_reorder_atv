@@ -24,9 +24,9 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.GuardedBy;
-import android.support.annotation.IntDef;
-import android.support.annotation.MainThread;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.IntDef;
+import androidx.annotation.MainThread;
 import android.util.Log;
 import com.android.tv.common.CommonPreferenceProvider.Preferences;
 import com.android.tv.common.util.CommonUtils;
@@ -331,3 +331,4 @@ public class CommonPreferences {
         }
     }
 }
+

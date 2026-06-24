@@ -18,7 +18,7 @@ package com.android.tv.common.ui.setup;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.transition.Transition;
 import android.transition.Transition.TransitionListener;
 import android.view.Gravity;
@@ -241,3 +241,4 @@ public abstract class SetupFragment extends Fragment {
         return null;
     }
 }
+

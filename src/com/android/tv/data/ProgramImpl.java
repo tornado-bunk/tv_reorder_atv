@@ -26,11 +26,11 @@ import android.media.tv.TvContract.Programs;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 
 import com.android.tv.common.TvContentRatingCache;
@@ -991,3 +991,4 @@ public final class ProgramImpl extends BaseProgramImpl implements Parcelable, Pr
         out.writeByte((byte) (mRecordingProhibited ? 1 : 0));
     }
 }
+

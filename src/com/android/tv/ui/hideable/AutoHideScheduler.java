@@ -18,9 +18,9 @@ package com.android.tv.ui.hideable;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.UiThread;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import androidx.annotation.VisibleForTesting;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener;
 import com.android.tv.common.WeakHandler;
@@ -56,7 +56,7 @@ public final class AutoHideScheduler implements AccessibilityStateChangeListener
         // Keep a reference here because HideHandler only has a weak reference to it.
         mRunnable = runnable;
         mHandler = new HideHandler(looper, mRunnable);
-        mHandler.setAllowAutoHide(!accessibilityManager.isEnabled());
+        mHandler.setAllowAutoHide(true);
     }
 
     public void cancel() {
@@ -107,7 +107,7 @@ public final class AutoHideScheduler implements AccessibilityStateChangeListener
 
         @Override
         public void onAccessibilityStateChanged(boolean enabled) {
-            mAllowAutoHide = !enabled;
+            mAllowAutoHide = true;
         }
     }
 }

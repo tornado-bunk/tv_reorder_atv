@@ -29,10 +29,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import com.android.tv.TvSingletons;
@@ -275,9 +275,9 @@ public class RecommendationDataManager implements WatchedHistoryManager.Listener
             } else {
                 mContext.getContentResolver()
                         .registerContentObserver(
-                                TvContract.WatchedPrograms.CONTENT_URI, true, mContentObserver);
+                                WatchedPrograms.CONTENT_URI, true, mContentObserver);
                 mHandler.obtainMessage(
-                                MSG_UPDATE_WATCH_HISTORY, TvContract.WatchedPrograms.CONTENT_URI)
+                                MSG_UPDATE_WATCH_HISTORY, WatchedPrograms.CONTENT_URI)
                         .sendToTarget();
             }
             mTvInputManager = (TvInputManager) mContext.getSystemService(Context.TV_INPUT_SERVICE);
@@ -402,18 +402,18 @@ public class RecommendationDataManager implements WatchedHistoryManager.Listener
         // Have to initiate the indexes of WatchedProgram Columns.
         if (mIndexWatchChannelId == -1) {
             mIndexWatchChannelId =
-                    cursor.getColumnIndex(TvContract.WatchedPrograms.COLUMN_CHANNEL_ID);
-            mIndexProgramTitle = cursor.getColumnIndex(TvContract.WatchedPrograms.COLUMN_TITLE);
+                    cursor.getColumnIndex(WatchedPrograms.COLUMN_CHANNEL_ID);
+            mIndexProgramTitle = cursor.getColumnIndex(WatchedPrograms.COLUMN_TITLE);
             mIndexProgramStartTime =
-                    cursor.getColumnIndex(TvContract.WatchedPrograms.COLUMN_START_TIME_UTC_MILLIS);
+                    cursor.getColumnIndex(WatchedPrograms.COLUMN_START_TIME_UTC_MILLIS);
             mIndexProgramEndTime =
-                    cursor.getColumnIndex(TvContract.WatchedPrograms.COLUMN_END_TIME_UTC_MILLIS);
+                    cursor.getColumnIndex(WatchedPrograms.COLUMN_END_TIME_UTC_MILLIS);
             mIndexWatchStartTime =
                     cursor.getColumnIndex(
-                            TvContract.WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS);
+                            WatchedPrograms.COLUMN_WATCH_START_TIME_UTC_MILLIS);
             mIndexWatchEndTime =
                     cursor.getColumnIndex(
-                            TvContract.WatchedPrograms.COLUMN_WATCH_END_TIME_UTC_MILLIS);
+                            WatchedPrograms.COLUMN_WATCH_END_TIME_UTC_MILLIS);
         }
 
         Program program =
@@ -492,7 +492,7 @@ public class RecommendationDataManager implements WatchedHistoryManager.Listener
             switch (TvUriMatcher.match(uri)) {
                 case TvUriMatcher.MATCH_WATCHED_PROGRAM_ID:
                     if (!mHandler.hasMessages(
-                            MSG_UPDATE_WATCH_HISTORY, TvContract.WatchedPrograms.CONTENT_URI)) {
+                            MSG_UPDATE_WATCH_HISTORY, WatchedPrograms.CONTENT_URI)) {
                         mHandler.obtainMessage(MSG_UPDATE_WATCH_HISTORY, uri).sendToTarget();
                     }
                     break;
@@ -583,4 +583,16 @@ public class RecommendationDataManager implements WatchedHistoryManager.Listener
         @Override
         protected void handleMessage(Message msg, @NonNull RecommendationDataManager referent) {}
     }
+
+    private static final class WatchedPrograms {
+        public static final Uri CONTENT_URI = Uri.parse("content://android.media.tv/watched_program");
+        public static final String COLUMN_CHANNEL_ID = "channel_id";
+        public static final String COLUMN_TITLE = "title";
+        public static final String COLUMN_START_TIME_UTC_MILLIS = "start_time_utc_millis";
+        public static final String COLUMN_END_TIME_UTC_MILLIS = "end_time_utc_millis";
+        public static final String COLUMN_WATCH_START_TIME_UTC_MILLIS = "watch_start_time_utc_millis";
+        public static final String COLUMN_WATCH_END_TIME_UTC_MILLIS = "watch_end_time_utc_millis";
+    }
 }
+
+

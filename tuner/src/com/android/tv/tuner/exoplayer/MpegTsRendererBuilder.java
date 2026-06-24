@@ -17,7 +17,7 @@
 package com.android.tv.tuner.exoplayer;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.tv.tuner.exoplayer.MpegTsPlayer.RendererBuilder;
 import com.android.tv.tuner.exoplayer.MpegTsPlayer.RendererBuilderCallback;
@@ -94,3 +94,4 @@ public class MpegTsRendererBuilder implements RendererBuilder {
         callback.onRenderers(null, renderers);
     }
 }
+

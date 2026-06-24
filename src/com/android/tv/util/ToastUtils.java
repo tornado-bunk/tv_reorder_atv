@@ -17,7 +17,7 @@
 package com.android.tv.util;
 
 import android.content.Context;
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 
@@ -36,3 +36,4 @@ public class ToastUtils {
         sToast = new WeakReference<>(toast);
     }
 }
+

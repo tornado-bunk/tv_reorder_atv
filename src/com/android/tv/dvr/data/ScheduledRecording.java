@@ -23,8 +23,8 @@ import android.database.Cursor;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Range;
 
@@ -1170,3 +1170,4 @@ public final class ScheduledRecording implements Parcelable {
         return schedules.toArray(new ScheduledRecording[schedules.size()]);
     }
 }
+

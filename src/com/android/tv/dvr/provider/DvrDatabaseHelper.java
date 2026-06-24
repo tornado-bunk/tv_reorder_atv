@@ -24,7 +24,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.database.sqlite.SQLiteStatement;
 import android.provider.BaseColumns;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -545,3 +545,4 @@ public class DvrDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 }
+

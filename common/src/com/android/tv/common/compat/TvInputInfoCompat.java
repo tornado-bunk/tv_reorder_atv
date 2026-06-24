@@ -20,7 +20,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputService;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 
 import java.util.Collections;
@@ -119,3 +119,4 @@ public class TvInputInfoCompat {
         return si.loadXmlMetaData(pm, TvInputService.SERVICE_META_DATA);
     }
 }
+

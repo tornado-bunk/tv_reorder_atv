@@ -18,7 +18,7 @@ package com.android.tv.common.support.tis;
 import android.media.tv.TvInputService.Session;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArraySet;
 import com.google.common.collect.ImmutableSet;
 import java.util.HashSet;
@@ -60,3 +60,4 @@ public final class SimpleSessionManager implements SessionManager {
         return sessions.size();
     }
 }
+

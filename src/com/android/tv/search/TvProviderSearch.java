@@ -24,12 +24,11 @@ import android.media.tv.TvContentRating;
 import android.media.tv.TvContract;
 import android.media.tv.TvContract.Channels;
 import android.media.tv.TvContract.Programs;
-import android.media.tv.TvContract.WatchedPrograms;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager;
 import android.net.Uri;
 import android.os.SystemClock;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.tv.common.TvContentRatingCache;
@@ -619,4 +618,11 @@ public class TvProviderSearch implements SearchInterface {
             return -1;
         }
     }
+
+    private static final class WatchedPrograms {
+        public static final Uri CONTENT_URI = Uri.parse("content://android.media.tv/watched_program");
+        public static final String COLUMN_START_TIME_UTC_MILLIS = "start_time_utc_millis";
+        public static final String COLUMN_CHANNEL_ID = "channel_id";
+    }
 }
+

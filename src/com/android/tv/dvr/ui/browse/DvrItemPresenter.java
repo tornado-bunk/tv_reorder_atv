@@ -18,7 +18,7 @@ package com.android.tv.dvr.ui.browse;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.CallSuper;
+import androidx.annotation.CallSuper;
 import androidx.leanback.widget.Presenter;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -125,3 +125,4 @@ public abstract class DvrItemPresenter<T> extends Presenter {
         };
     }
 }
+

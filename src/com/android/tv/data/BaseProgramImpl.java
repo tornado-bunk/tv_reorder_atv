@@ -17,7 +17,7 @@
 package com.android.tv.data;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.android.tv.R;
@@ -84,3 +84,4 @@ public abstract class BaseProgramImpl implements BaseProgram {
         return !TextUtils.isEmpty(getSeriesId());
     }
 }
+

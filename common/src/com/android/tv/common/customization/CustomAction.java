@@ -18,7 +18,7 @@ package com.android.tv.common.customization;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /** Describes a custom option defined in customization package. This will be added to main menu. */
 public class CustomAction implements Comparable<CustomAction> {
@@ -66,3 +66,4 @@ public class CustomAction implements Comparable<CustomAction> {
         return mIntent;
     }
 }
+

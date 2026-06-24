@@ -17,7 +17,7 @@
 package com.android.tv.tuner.data;
 
 import android.graphics.Color;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /** Collection of CEA-708 structures. */
 public class Cea708Data {
@@ -326,3 +326,4 @@ public class Cea708Data {
         }
     }
 }
+

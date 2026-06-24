@@ -16,7 +16,7 @@
 
 package com.google.android.tv.partner.support;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -123,3 +123,4 @@ public class TunerSetupUtils {
         return true;
     }
 }
+

@@ -17,7 +17,7 @@
 package com.android.tv.tuner.hdhomerun;
 
 import android.content.Context;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.util.Pair;
 
 import com.android.tv.tuner.api.Tuner;
@@ -60,3 +60,4 @@ public final class HdHomeRunTunerHalFactory implements TunerFactory {
         return Pair.create(Tuner.TUNER_TYPE_NETWORK, HdHomeRunTunerHal.getNumberOfDevices());
     }
 }
+

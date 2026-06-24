@@ -17,7 +17,7 @@
 package com.android.tv.common.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -120,3 +120,4 @@ public class PostalCodeUtils {
         return maxLength == null ? DEFAULT_MAX_LENGTH : maxLength;
     }
 }
+

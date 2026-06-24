@@ -17,7 +17,7 @@
 package com.android.tv.tuner.source;
 
 import android.content.Context;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import com.android.tv.common.SoftPreconditions;
 import com.android.tv.common.util.AutoCloseableUtils;
 import com.android.tv.tuner.api.Tuner;
@@ -302,3 +302,4 @@ public class TunerTsStreamerManager {
         }
     }
 }
+

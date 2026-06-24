@@ -24,9 +24,9 @@ import android.database.Cursor;
 import android.media.tv.TvContract;
 import android.media.tv.TvInputInfo;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.tv.common.CommonConstants;
@@ -187,7 +187,8 @@ public final class ChannelImpl implements Channel {
 
     @Override
     public String getDisplayNumber() {
-        return mDisplayNumber;
+        // Returns the custom channel number if it has been reordered via ChannelReorderManager.
+        return ChannelReorderManager.getCustomDisplayNumber(mId, mDisplayNumber);
     }
 
     @Override
@@ -805,3 +806,4 @@ public final class ChannelImpl implements Channel {
         }
     }
 }
+

@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.android.tv.common.flags.UiFlags;
@@ -41,8 +41,7 @@ public final class OnboardingUtils {
 
     /** Checks if this is the first boot after the onboarding experience has been applied. */
     public static boolean isFirstBoot(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean(PREF_KEY_IS_FIRST_BOOT, true);
+        return false;
     }
 
     /** Marks that the first boot has been completed. */
@@ -58,10 +57,7 @@ public final class OnboardingUtils {
      * onboarding version.
      */
     public static boolean isFirstRunWithCurrentVersion(Context context) {
-        int versionCode =
-                PreferenceManager.getDefaultSharedPreferences(context)
-                        .getInt(PREF_KEY_ONBOARDING_VERSION_CODE, 0);
-        return versionCode != ONBOARDING_VERSION;
+        return false;
     }
 
     /**
@@ -77,3 +73,4 @@ public final class OnboardingUtils {
 
     private OnboardingUtils() {}
 }
+

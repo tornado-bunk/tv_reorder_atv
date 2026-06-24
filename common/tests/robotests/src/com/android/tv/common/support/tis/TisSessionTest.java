@@ -7,9 +7,9 @@ import android.media.tv.TvInputManager;
 import android.media.tv.TvTrackInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Pair;
 import android.view.Surface;
 import android.view.View;
@@ -207,3 +207,4 @@ public class TisSessionTest {
         }
     }
 }
+

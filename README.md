@@ -1,38 +1,16 @@
-# Live TV
+# Live TV with Channel Reordering (Android TV)
 
-__Live TV__ is the Open Source reference application for watching TV on Android
-TVs.
+This is a customized fork of the open-source Android TV **LiveTV (Live Channels)** application from AOSP.
 
-Live TV is a system app for Android TV. It should be compiled with Android TV
-platform.
+---
 
-How to build:
+## Key Features: Manual Channel Reordering
+Unlike the standard AOSP app which relies strictly on the system's `TvProvider` database (which requires system/firmware signatures to modify), this fork:
+* Stores a custom mapping of `channelId` to a user-defined display number locally on the device (`SharedPreferences`).
+* Provides a visual **"Reorder channels"** menu inside the settings panel.
+* Allows you to select any channel with the remote control (**OK** key), move it up or down using the **Dpad Up/Down** keys, and press **OK/Back** to save.
+* Works seamlessly with the EPG grid, side panel, and channel zapping (pressing channel numbers on the remote).
 
-1.  Enable the feature PackageManager.FEATURE_LIVE_TV.
-2.  Put this project under Android platform repository if required.
-3.  Include this package inside platform build.
-4.  Build the platform. https://source.android.com/source/building.html
+---
 
-NOTE: This is a reference application and should not be used with further
-hardening.
-
-## Build just Live Tv
-
-To install LiveTv
-
-```bash
-echo "Compiling"
-m -j LiveTv
-echo  "Installing"
-adb install -r ${OUT}/system/priv-app/LiveTv/LiveTv.apk
-
-```
-
-If it is your first time installing LiveTv you will need to do
-
-```bash
-adb root
-adb remount
-adb push ${OUT}/system/priv-app/LiveTv/LiveTv.apk /system/priv-app/LiveTv/LiveTv.apk
-adb reboot
-```
+*Built with AI aid. Distributed under the original Apache 2.0 license.*

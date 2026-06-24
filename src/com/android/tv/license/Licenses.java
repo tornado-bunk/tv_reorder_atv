@@ -17,7 +17,7 @@
 package com.android.tv.license;
 
 import android.content.Context;
-import android.support.annotation.RawRes;
+import androidx.annotation.RawRes;
 import com.android.tv.R;
 import com.android.tv.common.SoftPreconditions;
 import java.io.ByteArrayOutputStream;
@@ -119,3 +119,4 @@ public final class Licenses {
         }
     }
 }
+

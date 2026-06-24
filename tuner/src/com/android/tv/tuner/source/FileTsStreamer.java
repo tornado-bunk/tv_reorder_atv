@@ -19,7 +19,7 @@ package com.android.tv.tuner.source;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import com.android.tv.common.SoftPreconditions;
@@ -501,3 +501,4 @@ public class FileTsStreamer implements TsStreamer {
         }
     }
 }
+

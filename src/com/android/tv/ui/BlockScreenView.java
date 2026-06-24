@@ -25,7 +25,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.media.tv.TvInputInfo;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -277,3 +277,4 @@ public class BlockScreenView extends FrameLayout {
         mEmptyInputStatusBlockView.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 }
+

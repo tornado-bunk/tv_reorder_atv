@@ -52,10 +52,10 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.provider.BaseColumns;
 import android.provider.Settings;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
@@ -554,9 +554,7 @@ public class MainActivity extends Activity
                 TvContract.isChannelUriForPassthroughInput(getIntent().getData());
         boolean tuneToPassthroughInput =
                 Intent.ACTION_VIEW.equals(getIntent().getAction()) && isPassthroughInput;
-        boolean channelLoadedAndNoChannelAvailable =
-                mChannelDataManager.isDbLoadFinished()
-                        && mChannelDataManager.getChannelCount() <= 0;
+        boolean channelLoadedAndNoChannelAvailable = false;
         if ((OnboardingUtils.isFirstRunWithCurrentVersion(this)
                         || channelLoadedAndNoChannelAvailable)
                 && !tuneToPassthroughInput
@@ -565,10 +563,21 @@ public class MainActivity extends Activity
             return;
         }
         setContentView(R.layout.activity_tv);
-        TvInteractiveAppView tvInteractiveAppView = findViewById(R.id.tv_app_view);
         mTvView = findViewById(R.id.main_tunable_tv_view);
-        mTvView.initialize(
-                mProgramDataManager, mTvInputManagerHelper, mLegacyFlags, tvInteractiveAppView);
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            android.view.View tvInteractiveAppView = findViewById(R.id.tv_app_view);
+            if (tvInteractiveAppView instanceof android.media.tv.interactive.TvInteractiveAppView) {
+                mTvView.initialize(
+                        mProgramDataManager,
+                        mTvInputManagerHelper,
+                        mLegacyFlags,
+                        (android.media.tv.interactive.TvInteractiveAppView) tvInteractiveAppView);
+            } else {
+                mTvView.initialize(mProgramDataManager, mTvInputManagerHelper, mLegacyFlags);
+            }
+        } else {
+            mTvView.initialize(mProgramDataManager, mTvInputManagerHelper, mLegacyFlags);
+        }
         mTvView.setOnUnhandledInputEventListener(
                 new OnUnhandledInputEventListener() {
                     @Override
@@ -3121,3 +3130,4 @@ public class MainActivity extends Activity
         abstract InteractiveAppDialogFragment contributesInteractiveAppDialogFragment();
     }
 }
+

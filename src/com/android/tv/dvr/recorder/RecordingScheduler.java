@@ -25,9 +25,9 @@ import android.media.tv.TvInputManager.TvInputCallback;
 import android.os.Build;
 import android.os.HandlerThread;
 import android.os.Looper;
-import android.support.annotation.MainThread;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.MainThread;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Range;
@@ -354,3 +354,4 @@ public class RecordingScheduler extends TvInputCallback implements ScheduledReco
         }
     }
 }
+

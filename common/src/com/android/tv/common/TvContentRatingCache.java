@@ -17,8 +17,8 @@
 package com.android.tv.common;
 
 import android.media.tv.TvContentRating;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -136,3 +136,4 @@ public final class TvContentRatingCache implements MemoryManageable {
 
     private TvContentRatingCache() {}
 }
+

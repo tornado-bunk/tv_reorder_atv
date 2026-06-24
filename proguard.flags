@@ -20,6 +20,7 @@
 -dontwarn android.support.**
 -dontwarn com.ibm.icu.**
 -dontwarn com.google.android.exoplayer.**
+-dontwarn com.google.android.exoplayer2.**
 -dontwarn com.android.tv.tuner.**
 -dontwarn com.android.tv.dvr.**
 
@@ -71,3 +72,24 @@
 
 # Don't warn about checkerframework in Android proguard
 -dontwarn org.checkerframework.**
+
+# Protobuf keep rules
+-keep class * extends com.google.protobuf.GeneratedMessageLite { *; }
+-keep class com.google.protobuf.** { *; }
+
+# AutoValue / AutoFactory keep rules
+-keep class * extends com.google.auto.value.AutoValue { *; }
+-keep @com.google.auto.value.AutoValue class * { *; }
+-keep class com.google.auto.factory.** { *; }
+-keep @com.google.auto.factory.AutoFactory class * { *; }
+-keep class *Factory { *; }
+-keep class *Impl { *; }
+
+# Ignore compile-time dependencies in final package analysis
+-dontwarn javax.annotation.processing.**
+-dontwarn javax.lang.model.**
+-dontwarn javax.tools.**
+-dontwarn com.squareup.javapoet.**
+-dontwarn com.google.auto.factory.**
+-dontwarn com.google.auto.value.**
+

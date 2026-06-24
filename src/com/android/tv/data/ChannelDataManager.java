@@ -30,10 +30,10 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.AnyThread;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.AnyThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.MutableInt;
@@ -175,6 +175,11 @@ public class ChannelDataManager {
         mBrowsableSharedPreferences =
                 context.getSharedPreferences(
                         SharedPreferencesUtils.SHARED_PREF_BROWSABLE, Context.MODE_PRIVATE);
+        if (mStoreBrowsableInSharedPreferences) {
+            if (!mBrowsableSharedPreferences.getBoolean("browsable_migrated_v2", false)) {
+                mBrowsableSharedPreferences.edit().clear().putBoolean("browsable_migrated_v2", true).apply();
+            }
+        }
     }
 
     @VisibleForTesting
@@ -657,7 +662,7 @@ public class ChannelDataManager {
                 if (mStoreBrowsableInSharedPreferences) {
                     String browsableKey = getBrowsableKey(channel);
                     channel.setBrowsable(
-                            mBrowsableSharedPreferences.getBoolean(browsableKey, false));
+                            mBrowsableSharedPreferences.getBoolean(browsableKey, channel.isBrowsable()));
                     deletedBrowsableMap.remove(browsableKey);
                 }
                 long channelId = channel.getId();
@@ -736,6 +741,17 @@ public class ChannelDataManager {
             }
             mPostRunnablesAfterChannelUpdate.clear();
         }
+    }
+
+    /**
+     * Forces the reordering of channels in memory and notifies listeners.
+     */
+    @MainThread
+    public void reorderChannels() {
+        ChannelData data = new ChannelData(mData);
+        Collections.sort(data.channels, mChannelComparator);
+        mData = new UnmodifiableChannelData(data);
+        notifyChannelListUpdated();
     }
 
     /**
@@ -826,3 +842,4 @@ public class ChannelDataManager {
         }
     }
 }
+

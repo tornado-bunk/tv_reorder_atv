@@ -21,8 +21,8 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.IntDef;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import androidx.leanback.widget.HorizontalGridView;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener;
@@ -336,3 +336,4 @@ public class Menu implements AccessibilityStateChangeListener {
         public abstract void onMenuVisibilityChange(boolean visible);
     }
 }
+

@@ -16,7 +16,7 @@
 
 package com.android.tv.tuner.hdhomerun;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.Pair;
 import com.android.tv.tuner.hdhomerun.HdHomeRunDiscover.HdHomeRunDiscoverDevice;
@@ -224,3 +224,4 @@ class HdHomeRunControlSocket implements AutoCloseable {
         }
     }
 }
+

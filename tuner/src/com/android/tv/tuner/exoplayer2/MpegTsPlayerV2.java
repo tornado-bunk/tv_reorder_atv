@@ -17,8 +17,8 @@
 package com.android.tv.tuner.exoplayer2;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import android.view.Surface;
 
 import com.android.tv.tuner.data.Cea708Data;
@@ -489,3 +489,4 @@ public class MpegTsPlayerV2
         }
     }
 }
+

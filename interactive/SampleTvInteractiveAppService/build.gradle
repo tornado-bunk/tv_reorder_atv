@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    namespace 'com.android.tv.samples.sampletvinteractiveappservice'
     compileSdk 31
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion

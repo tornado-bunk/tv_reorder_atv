@@ -1,8 +1,6 @@
-# Live TV with Channel Reordering (Android TV)
+# Live TV with Channel Reordering for Android TV
 
 This is a customized fork of the open-source Android TV **LiveTV (Live Channels)** application from AOSP.
-
----
 
 ## Key Features: Manual Channel Reordering
 Unlike the standard AOSP app which relies strictly on the system's `TvProvider` database (which requires system/firmware signatures to modify), this fork:

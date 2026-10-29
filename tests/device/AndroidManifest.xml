@@ -1,0 +1,1 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tvreorder.devicetests"><uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29"/><application android:label="Live TV device tests"/><instrumentation android:name=".SmokeRunner" android:targetPackage="com.tvreorder.tv" android:functionalTest="true"/></manifest>

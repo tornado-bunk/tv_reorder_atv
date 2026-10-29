@@ -138,6 +138,11 @@ public class SetupSourcesFragment extends SetupMultiPaneFragment {
         private final TvInputCallback mInputCallback =
                 new TvInputCallback() {
                     @Override
+                    public void onInputStateChanged(String inputId, int state) {
+                        handleInputChanged();
+                    }
+
+                    @Override
                     public void onInputAdded(String inputId) {
                         handleInputChanged();
                     }

@@ -194,13 +194,14 @@ public abstract class TvApplication extends BaseApplication implements TvSinglet
                                                     .getTunerInputController()
                                                     .updateTunerInputInfo(TvApplication.this);
                                         }
-                                        handleInputCountChanged();
                                     }
+                                    // Input reconnection must not kill the playback process.
+                                    handleInputCountChanged(false, false, true);
                                 }
 
                                 @Override
                                 public void onInputRemoved(String inputId) {
-                                    handleInputCountChanged();
+                                    handleInputCountChanged(false, false, true);
                                 }
                             });
             if (mOptionalBuiltInTunerManager.isPresent()) {

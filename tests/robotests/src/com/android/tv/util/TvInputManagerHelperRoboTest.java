@@ -17,15 +17,23 @@
 package com.android.tv.util;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.ServiceInfo;
 import android.media.tv.TvInputInfo;
 import android.media.tv.TvInputManager;
-
+import android.os.Build;
+import android.os.Handler;
 import com.android.tv.common.flags.impl.DefaultLegacyFlags;
 import com.android.tv.testing.constants.ConfigConstants;
-
+import java.util.Collections;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -39,6 +47,71 @@ import org.robolectric.annotation.Config;
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = ConfigConstants.SDK)
 public class TvInputManagerHelperRoboTest {
+
+    @Test
+    @Config(sdk = Build.VERSION_CODES.Q)
+    public void updatedInputMissingFromInitialList_isAdded() {
+        assertLateInputRecovered(0);
+    }
+
+    @Test
+    @Config(sdk = Build.VERSION_CODES.Q)
+    public void updatedInputInfoMissingFromInitialList_isAdded() {
+        assertLateInputRecovered(1);
+    }
+
+    @Test
+    @Config(sdk = Build.VERSION_CODES.Q)
+    public void stateChangedForInputMissingFromInitialList_isAdded() {
+        assertLateInputRecovered(2);
+    }
+
+    private void assertLateInputRecovered(int event) {
+        String inputId = "com.example/.Tuner";
+        TvInputInfo input = mock(TvInputInfo.class);
+        ServiceInfo service = new ServiceInfo();
+        service.packageName = "com.example";
+        service.applicationInfo = new ApplicationInfo();
+        service.applicationInfo.packageName = service.packageName;
+        service.applicationInfo.flags = ApplicationInfo.FLAG_SYSTEM;
+        when(input.getId()).thenReturn(inputId);
+        when(input.getType()).thenReturn(TvInputInfo.TYPE_TUNER);
+        when(input.getServiceInfo()).thenReturn(service);
+        when(input.loadLabel(any())).thenReturn("Tuner");
+
+        TvInputManagerHelper.TvInputManagerInterface manager =
+                mock(TvInputManagerHelper.TvInputManagerInterface.class);
+        when(manager.getTvInputList()).thenReturn(Collections.emptyList());
+        when(manager.getTvContentRatingSystemList()).thenReturn(Collections.emptyList());
+        when(manager.getTvInputInfo(inputId)).thenReturn(input);
+        when(manager.getInputState(inputId)).thenReturn(TvInputManager.INPUT_STATE_CONNECTED);
+        TvInputManagerHelper helper =
+                new TvInputManagerHelper(
+                        RuntimeEnvironment.application, manager, DefaultLegacyFlags.DEFAULT);
+        helper.start();
+        try {
+            TvInputManager.TvInputCallback listener = mock(TvInputManager.TvInputCallback.class);
+            helper.addCallback(listener);
+            ArgumentCaptor<TvInputManager.TvInputCallback> callback =
+                    ArgumentCaptor.forClass(TvInputManager.TvInputCallback.class);
+            verify(manager).registerCallback(callback.capture(), any(Handler.class));
+            assertThat(helper.getTvInputInfos(true, true)).isEmpty();
+
+            if (event == 0) {
+                callback.getValue().onInputUpdated(inputId);
+            } else if (event == 1) {
+                callback.getValue().onTvInputInfoUpdated(input);
+            } else {
+                callback.getValue()
+                        .onInputStateChanged(inputId, TvInputManager.INPUT_STATE_CONNECTED);
+            }
+
+            assertThat(helper.getTvInputInfos(true, true)).containsExactly(input);
+            verify(listener).onInputAdded(inputId);
+        } finally {
+            helper.stop();
+        }
+    }
 
     @Test
     public void getInputState_null() {

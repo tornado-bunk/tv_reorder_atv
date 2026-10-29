@@ -465,6 +465,14 @@ public class MainActivity extends Activity
                 @Override
                 public void onBrowsableChannelListChanged() {
                     mOverlayManager.onBrowsableChannelsUpdated();
+                    // Resume after a temporarily missing input brings its channels back.
+                    if (mActivityResumed
+                            && mChannelTuner.areAllChannelsLoaded()
+                            && mChannelTuner.getBrowsableChannelCount() > 0
+                            && mInputIdUnderSetup == null
+                            && !mTvView.isPlaying()) {
+                        resumeTvIfNeeded();
+                    }
                 }
 
                 @Override
@@ -1110,6 +1118,7 @@ public class MainActivity extends Activity
             if (!mChannelTuner.moveToChannel(mChannelTuner.findNearestBrowsableChannel(0))) {
                 Log.w(TAG, "No browsable channel, show setup");
                 showSettingsFragment();
+                return;
             }
         } else {
             if (TvContract.isChannelUriForPassthroughInput(channelUri)) {
@@ -1129,6 +1138,7 @@ public class MainActivity extends Activity
                             mChannelTuner.findNearestBrowsableChannel(0))) {
                         Log.w(TAG, "No browsable channel, show setup");
                         showSettingsFragment();
+                        return;
                     }
                 }
             }

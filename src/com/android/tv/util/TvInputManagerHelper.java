@@ -194,8 +194,11 @@ public class TvInputManagerHelper {
                 @Override
                 public void onInputStateChanged(String inputId, int state) {
                     if (DEBUG) Log.d(TAG, "onInputStateChanged " + inputId + " state=" + state);
-                    TvInputInfo info = mInputMap.get(inputId).getTvInputInfo();
-                    if (info == null || isInputBlocked(info)) {
+                    if (!mInputMap.containsKey(inputId)) {
+                        onInputAdded(inputId);
+                    }
+                    TvInputInfoCompat input = mInputMap.get(inputId);
+                    if (input == null || isInputBlocked(input.getTvInputInfo())) {
                         return;
                     }
                     mInputStateMap.put(inputId, state);
@@ -255,7 +258,13 @@ public class TvInputManagerHelper {
                     if (info == null || isInputBlocked(info)) {
                         return;
                     }
+                    // Some inputs become available through an update after boot or standby.
+                    if (!mInputMap.containsKey(inputId)) {
+                        onInputAdded(inputId);
+                        return;
+                    }
                     mInputMap.put(inputId, new TvInputInfoCompat(mContext, info));
+                    mInputStateMap.put(inputId, mTvInputManager.getInputState(inputId));
                     mTvInputLabels.put(inputId, info.loadLabel(mContext).toString());
                     CharSequence inputCustomLabel = info.loadCustomLabel(mContext);
                     if (inputCustomLabel != null) {
@@ -277,7 +286,13 @@ public class TvInputManagerHelper {
                     if (isInputBlocked(inputInfo)) {
                         return;
                     }
+                    if (!mInputMap.containsKey(inputInfo.getId())) {
+                        onInputAdded(inputInfo.getId());
+                        return;
+                    }
                     mInputMap.put(inputInfo.getId(), new TvInputInfoCompat(mContext, inputInfo));
+                    mInputStateMap.put(
+                            inputInfo.getId(), mTvInputManager.getInputState(inputInfo.getId()));
                     mTvInputLabels.put(inputInfo.getId(), inputInfo.loadLabel(mContext).toString());
                     CharSequence inputCustomLabel = inputInfo.loadCustomLabel(mContext);
                     if (inputCustomLabel != null) {

@@ -106,7 +106,8 @@ public class ChannelDataManager {
                     boolean channelAdded = false;
                     ChannelData data = new ChannelData(mData);
                     for (ChannelWrapper channel : mData.channelWrapperMap.values()) {
-                        if (channel.mChannel.getInputId().equals(inputId)) {
+                        if (channel.mInputRemoved
+                                && channel.mChannel.getInputId().equals(inputId)) {
                             channel.mInputRemoved = false;
                             addChannel(data, channel.mChannel);
                             channelAdded = true;

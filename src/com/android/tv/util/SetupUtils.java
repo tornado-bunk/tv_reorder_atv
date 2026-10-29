@@ -134,7 +134,8 @@ public class SetupUtils {
                     boolean browsableChanged = false;
                     for (Channel channel : manager.getChannelList()) {
                         if (channel.getInputId().equals(inputId)) {
-                            if (!channel.isBrowsable() && MARK_NEW_CHANNELS_BROWSABLE) {
+                            // A successful scan explicitly opts this input's channels into Live TV.
+                            if (!channel.isBrowsable()) {
                                 manager.updateBrowsable(channel.getId(), true, true);
                                 browsableChanged = true;
                             }
